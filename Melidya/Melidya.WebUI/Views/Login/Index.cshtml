@@ -1,0 +1,19 @@
+﻿@model Melidya.WebUI.Models.LoginModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Login Index</h2>
+@using (Html.BeginForm("login", "Login", FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.username)
+    <br />
+    <br />
+    @Html.TextBoxFor(m => m.password)
+    <br />
+    <br />
+    <input type="submit" value="Giriş" class="btn btn-primary" />
+}

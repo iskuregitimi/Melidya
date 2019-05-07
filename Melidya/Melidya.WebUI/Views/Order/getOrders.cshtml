@@ -1,0 +1,38 @@
+﻿@using Melidya.DAL
+@model List<Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Customer ID</th>
+            <th scope="col">Ship Name</th>
+            <th scope="col">Ship City </th >
+            <th scope="col">Order Date </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Order item in Model)
+        {
+        <tr>
+            <th scope="row">@item.OrderID</th>
+            <td>@item.ShipName</td>
+            <td>@item.ShipCity</td>
+            <td>@item.OrderDate</td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Edit", "Edit", new {  id=item.OrderID }) |</td>
+            <td>@Html.ActionLink("orderDetails", "orderDetails", new { id = item.OrderID }) |</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.OrderID })</td>
+
+        </tr>
+        }
+
+    </tbody >
+</table >
