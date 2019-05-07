@@ -41,6 +41,7 @@ namespace Melidya.BLL
         {
             Customers cust = db.Customers.FirstOrDefault(x => x.CustomerID == customer.CustomerID);
             cust.CustomerID = customer.CustomerID;
+            cust.Password = customer.Password;
             cust.CompanyName = customer.CompanyName;
             cust.ContactName = customer.ContactName;
             cust.ContactTitle = customer.ContactTitle;

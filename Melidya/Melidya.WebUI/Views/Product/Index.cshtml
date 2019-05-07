@@ -8,18 +8,16 @@
 <section>
     <div class="container">
         <div class="row">
-
-
             @foreach (Products item in Model)
             {
-            <div class="col-md-3">
-                <img src="~/Content/images/cifte-kavrulmus-fistikli-lokum.jpg" width="250" height="250"/><br />
-                <b> @item.ProductName</b> <br/>
-                <b> @item.UnitPrice</b><br />
-                <button class="btn btn-primary"><i class="glyphicon glyphicon-shopping-cart"></i>Sepete Ekle</button>
-            </div>
-                    }              
-            </div>
+                <div class="col-md-3 table-bordered text-center">
+                    <img src="~/Content/images/cifte-kavrulmus-fistikli-lokum.jpg" width="200" height="200" /><br />
+                    <b> @item.ProductName</b> <br />
+                    <b> @item.UnitPrice</b><br />
+                    <button class="btn btn-primary"><i class="glyphicon glyphicon-shopping-cart"></i>Sepete Ekle</button>
+                </div>              
+            }
+        </div>
 
     </div>
 </section>
