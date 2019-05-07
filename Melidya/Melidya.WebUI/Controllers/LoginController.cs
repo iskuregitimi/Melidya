@@ -1,4 +1,5 @@
-﻿using Melidya.WebUI.Models;
+﻿using Melidya.BLL;
+using Melidya.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace Melidya.WebUI.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
+            string customerid = model.CustomerID;
+
             if (Session["CustomerID"] == null)
             {
                 Session.Add("CustomerID", model.CustomerID);
@@ -25,8 +28,9 @@ namespace Melidya.WebUI.Controllers
             Session["CustomerID"] = model.CustomerID;
 
             string CustomerID = model.CustomerID;
-
-            return RedirectToAction("Index")
+         var customer=   CustomerBLL.GetCustomers(customerid);
+            ViewBag.name = customer.ContactName;
+            return RedirectToAction("Index","Order");
         }
     }
 }
