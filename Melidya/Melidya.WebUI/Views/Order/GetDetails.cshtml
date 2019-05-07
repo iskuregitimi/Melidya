@@ -1,0 +1,30 @@
+﻿@using Melidya.ENTITY
+@model List<Order_Details>
+@{
+    ViewBag.Title = "GetDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Category Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Order_Details item in Model)
+        {
+        <tr>
+            <th scope="row">@item.OrderID</th>
+            <td>@item.Products.ProductName</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.Quantity</td>
+            <td>@item.Products.Categories.CategoryName</td>
+        </tr>
+        }
+    </tbody>
+</table>

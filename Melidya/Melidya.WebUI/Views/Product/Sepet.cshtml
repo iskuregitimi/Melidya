@@ -1,0 +1,23 @@
+﻿@using Melidya.ENTITY
+@model  Products 
+@{
+    ViewBag.Title = "Sepet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            @foreach (Products item in Model)
+            {
+                <div class="col-md-3">
+                    <img src="~/Content/images/cifte-kavrulmus-fistikli-lokum.jpg" width="250" height="250" /><br />
+                    <b> @item.ProductName</b> <br />
+                    <b> @item.UnitPrice</b><br />                  
+                </div>
+            }
+        </div>
+
+    </div>
+</section>
+

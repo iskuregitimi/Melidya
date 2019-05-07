@@ -8,19 +8,25 @@
 
 @using (Html.BeginForm("Login", "Login", FormMethod.Post))
 {
+    <br />
+<section class="kapsul">
     <div class="container">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Kullanıcı Adı</span>
+                <span class="input-group-text" id="basic-addon1">Kullanıcı Adı : </span>
             </div>
-            @Html.TextBoxFor(x => x.CustomerID, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+            @Html.TextBoxFor(x => x.CustomerID, new { @class = "form-control e-posta", placeholder = "Kullanıcı Adı" })
         </div>
+        <br />
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şifre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span class="input-group-text" id="basic-addon1">Şifre : </span>
             </div>
-            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Şifre" })
+            @Html.TextBoxFor(x => x.Password, new { @class = "form-control sifre", placeholder = "Şifre", type = "Password" })
         </div>
+        <br />
         <input type="submit" value="Giriş" class="btn btn-success" />
     </div>
+</section>
+
 }

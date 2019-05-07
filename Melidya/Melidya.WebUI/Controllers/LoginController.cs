@@ -10,6 +10,7 @@ namespace Melidya.WebUI.Controllers
 {
     public class LoginController : Controller
     {
+        CustomerBLL customerbll = new CustomerBLL();
         // GET: Login
         public ActionResult Index()
         {
@@ -20,19 +21,54 @@ namespace Melidya.WebUI.Controllers
             return View();
         }
 
+        [HttpPost]
         public ActionResult Login(Customers cust)
         {
-            CustomerBLL customerbll = new CustomerBLL();
-            if (Session["Login"] == null)
+            Customers customer= customerbll.GetCustomer(cust.CustomerID);
+
+            if (customer!=null)
             {
-                Session["Login"] = customerbll.GetCustomer(cust.CustomerID);
+                if (customer.Password==cust.Password)//Şifre Hatalı
+                {
+                    Session["Login"] = customer;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return View();
+                }
             }
-            else
+            else //KullanıcıAdı Hatalı
             {
-                Session["Login"] = customerbll.GetCustomer(cust.CustomerID);
+                return View();
             }
-            return RedirectToAction("Index", "Login");
+            
         }
 
+        public ActionResult Logout()
+        {
+            Session.Remove("Login");
+            Session.Clear();             
+            return RedirectToAction("Index","Home");
+        }
+
+        public ActionResult Profil()
+        {
+            Customers cust = new Customers();
+            if (Session["Login"] != null)
+            {
+                Customers customer = Session["Login"] as Customers;
+                cust = customerbll.GetCustomer(customer.CustomerID);
+            }
+
+            return View(cust);
+        }
+
+        [HttpPost]
+        public ActionResult Profil(Customers customer)
+        {
+            customerbll.UpdateCustomer(customer);
+            return RedirectToAction("Profil");
+        }
     }
 }

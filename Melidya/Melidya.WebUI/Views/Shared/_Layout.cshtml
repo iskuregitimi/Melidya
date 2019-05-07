@@ -1,13 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using Melidya.ENTITY
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+
+    @{
+        Customers customer = null;
+        if (Session["Login"] != null)
+        {
+            customer = Session["Login"] as Customers;
+        }
+    }
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -21,19 +32,34 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="nav-item">@Html.ActionLink("Anasayfa", "Index", "Home")</li>
-                    <li class="nav-item">@Html.ActionLink("Orders", "Index", "Home")</li>
+                    <li class="nav-item">@Html.ActionLink("Products", "Index", "Product")</li>
+                    @if (Session["Login"] != null)
+                    {
+                        <li class="nav-item">@Html.ActionLink("Orders", "Index", "Order")</li>
+                        <li class="nav-item"><i class="glyphicon glyphicon-user"></i>@Html.ActionLink("Profilim", "Profil", "Login")</li>
+                        <li class="nav-item"><i class="glyphicon glyphicon-shopping-cart"></i>@Html.ActionLink("Sepetim", "Sepet", "Product")</li>
+                    }
+
                 </ul>
-                <div class="float-right">
-                    <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
+                    @if (Session["Login"] != null)
+                    {
+                        <li class="nav-item">
+                            <a>@customer.ContactName</a>
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Log Out", "Logout", "Login")
+                        </li>
+                    }
+                    else
+                    {
                         <li class="nav-item">
                             @Html.ActionLink("Login", "Login", "Login")
                         </li>
-                        <li class="nav-item">
-                            @Html.ActionLink("Logout", "Logout", "Login")
-                        </li>
-                    </ul>
-                </div>
-               
+                    }
+                </ul>
+
+
             </div>
         </div>
     </div>

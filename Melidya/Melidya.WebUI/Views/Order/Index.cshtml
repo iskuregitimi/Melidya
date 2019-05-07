@@ -1,0 +1,31 @@
+﻿@using Melidya.ENTITY
+@model  List<Orders>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Ship Name</th>
+            <th>Ship Country</th>
+            <th>Order Date</th>
+            <th>Detay</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Orders item in Model)
+        {
+            <tr>
+                <th scope="row">@item.OrderID</th>
+                <td>@item.ShipName</td>
+                <td>@item.ShipCountry</td>
+                <td>@item.OrderDate</td>
+                <td><a href="/Order/GetDetails/@item.OrderID">Detail</a></td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
