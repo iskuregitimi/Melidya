@@ -10,9 +10,14 @@ namespace Melidya.BLL
     public static class CustomerBLL
     {
         static NorthwindModel context = new NorthwindModel();
-        public static Customer getContactName(object username, object password)
+        public static Customer getCustomer(object username, object password)
         {
             return context.Customers.FirstOrDefault(x => x.CustomerID == username.ToString() && x.Password == password.ToString());
+        }
+
+        public static void updateCustomer(Customer customer)
+        {
+            context.SaveChanges();
         }
     }
 }

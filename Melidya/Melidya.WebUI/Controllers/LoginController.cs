@@ -1,4 +1,5 @@
 ﻿using Melidya.BLL;
+using Melidya.DAL;
 using Melidya.WebUI.Models;
 using System;
 using System.Collections.Generic;
@@ -18,19 +19,10 @@ namespace Melidya.WebUI.Controllers
 
         public ActionResult login(LoginModel model)
         {
-            if (Session["username"] == null || Session["password"] == null)
+            Customer customer = CustomerBLL.getCustomer(model.username,model.password);
+            if (customer != null)
             {
-                Session.Add("username", model.username);
-                Session.Add("password", model.password);
-            }
-
-            Session["username"] = model.username;
-            Session["password"] = model.password;
-
-            var contactName = CustomerBLL.getContactName(Session["username"], Session["password"]);
-            if (contactName != null)
-            {
-                Session["Login"] = contactName;
+                Session["Login"] = customer;
                 return RedirectToAction("getOrders","Order");
             }
 
@@ -39,7 +31,33 @@ namespace Melidya.WebUI.Controllers
 
         public ActionResult profile(LoginModel model)
         {
-            return View();
+            Customer  customer = Session["Login"] as Customer;          
+            return View(customer);
+        }
+
+        public ActionResult update(Customer cust)
+        {
+            Customer customer = Session["Login"] as Customer;
+            customer.CustomerID = cust.CustomerID;
+            customer.Password = cust.Password;
+            customer.CompanyName = cust.CompanyName;
+            customer.ContactName = cust.ContactName;
+            customer.ContactTitle = cust.ContactTitle;
+            customer.Address = cust.Address;
+            customer.City = cust.City;
+            customer.Region = cust.Region;
+            customer.PostalCode = cust.PostalCode;
+            customer.Country = cust.Country;
+            customer.Phone = cust.Phone;
+            customer.Fax = cust.Fax;
+            CustomerBLL.updateCustomer(customer);
+            return RedirectToAction("profile");
+        }
+
+        public ActionResult logout()
+        {
+            Session["Login"] = null;
+            return RedirectToAction("Index");
         }
     }
 }

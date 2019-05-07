@@ -19,8 +19,12 @@ namespace Melidya.WebUI.Controllers
 
         public ActionResult getOrders()
         {
-            string customerID = Session["username"].ToString();
-            List<Order> orderList = OrderBLL.getOrders(customerID);
+            Customer customer = null;
+            if (Session["Login"] != null)
+            {
+                customer = Session["Login"] as Customer;
+            }
+            List<Order> orderList = OrderBLL.getOrders(customer.CustomerID);
             return View(orderList);
         }
 
