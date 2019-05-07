@@ -26,7 +26,7 @@ namespace Melidya.WebUI.Controllers
 
             string CustomerID = model.CustomerID;
 
-            return RedirectToAction("Order");
+            return RedirectToAction("Index");
         }
     }
 }

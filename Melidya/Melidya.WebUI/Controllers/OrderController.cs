@@ -15,9 +15,9 @@ namespace Melidya.WebUI.Controllers
         {
             List<Orders> model = new List<Orders>();
 
-            if (Session["Login"] != null)
+            if (Session["CustomerID"] != null)
             {
-                string customerId = Session["Login"].ToString();
+                string customerId = Session["CustomerID"].ToString();
 
                 model = OrderBLL.GetOrders(customerId);
             }
