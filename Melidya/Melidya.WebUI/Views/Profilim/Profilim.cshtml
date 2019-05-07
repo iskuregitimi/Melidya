@@ -1,0 +1,49 @@
+﻿@model Entiys.Customer
+@{
+    ViewBag.Title = "Profilim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Profilim</h2>
+<br />
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.CompanyName)
+        @Html.TextAreaFor(x => x.CompanyName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.ContactName)
+        @Html.TextAreaFor(x => x.ContactTitle, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Address)
+        @Html.TextAreaFor(x => x.Address, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.City)
+        @Html.TextAreaFor(x => x.City, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.PostalCode)
+        @Html.TextAreaFor(x => x.PostalCode, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Country)
+        @Html.TextAreaFor(x => x.Country, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Phone)
+        @Html.TextAreaFor(x => x.Phone, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Fax)
+        @Html.TextAreaFor(x => x.Fax, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Password)
+        @Html.TextAreaFor(x => x.Password, new { @class = "form-control" })
+    </div>
+}
+    <button class="btn btn-success" type="submit">Güncelle</button>
+

@@ -1,0 +1,58 @@
+﻿@model List<Entiys.Order>
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Order</h2>
+<br />
+<div>
+    <table class="table table-bordered table-hover ">
+        <thead>
+            <tr>
+ 
+                <th>Customer ID</th>
+                <th>EmployeeID</th>
+                <th>OrderDate</th>
+              
+                <th>ShippedDate</th>
+                <th>ShipVia</th>
+                <th>Freight</th>
+                <th>ShipName</th>
+                <th>ShipAddress</th>
+                <th>ShipCity</th>
+                <th>ShipRegion</th>
+                <th>ShipPostalCode</th>
+                <th>ShipCountry</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                   
+                    <td>@item.CustomerID</td>
+                    <td>@item.EmployeeID</td>
+                    <td>@item.OrderDate</td>
+                   
+                    <td>@item.ShippedDate</td>
+                    <td>@item.ShipVia</td>
+                    <td>@item.Freight</td>
+                    <td>@item.ShipName</td>
+                    <td>@item.ShipAddress</td>
+                    <td>@item.ShipCity</td>
+                    <td>@item.ShipRegion</td>
+                    <td>@item.ShipPostalCode</td>
+                    <td>@item.ShipCountry</td>
+                    <td><a class="btn btn-info" href="~/Order/OrderDetail/@item.OrderID">Detail</a></td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+

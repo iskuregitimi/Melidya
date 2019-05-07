@@ -1,0 +1,32 @@
+﻿@model List<Entiys.Order_Detail>
+@{
+    ViewBag.Title = "OrderDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderDetail</h2>
+<br />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Product ID</th>
+            <th>Unit Price</th>          
+            <th>Quantity</th>
+            <th>Discount</th>     
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.OrderID</td>
+            <td>@item.ProductID</td>
+            <td>@item.UnitPrice</td>
+            <td>@item.Quantity</td>
+            <td>@item.Discount</td>        
+        </tr>
+        }
+
+    </tbody>
+</table>
