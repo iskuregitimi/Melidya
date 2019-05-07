@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -185,6 +191,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Melidya.BLL\Melidya.BLL.csproj">
+      <Project>{2994aada-5f41-4cbe-b9b0-dfecac23f89c}</Project>
+      <Name>Melidya.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Melidya.DAL\Melidya.DAL.csproj">
+      <Project>{7bbd6479-8c12-4571-a1c6-fbc860e1e719}</Project>
+      <Name>Melidya.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Melidya.ENTITY\Melidya.ENTITY.csproj">
+      <Project>{6e541a3b-9c6a-4014-b6f6-ff80d2bacbe9}</Project>
+      <Name>Melidya.ENTITY</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
