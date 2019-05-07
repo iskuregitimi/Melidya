@@ -40,7 +40,7 @@ namespace Melidya.WebUI.Controllers
 
             }
 
-            return View();
+            return RedirectToAction("Profilim","Profilim");
 
         }
 
