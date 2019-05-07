@@ -23,7 +23,22 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (Session["Login"] == null)
+                    {
+                        <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                    }
+                   
+                    
                 </ul>
+                @if (Session["Login"] != null)
+                {
+                    <b style="color:white">@Session["Login"].ToString() </b>
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Order", "Order", "Order")</li>
+                        <li>@Html.ActionLink("Profil", "Profill", "Profil")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Profil")</li>
+                    </ul>
+                }
             </div>
         </div>
     </div>
