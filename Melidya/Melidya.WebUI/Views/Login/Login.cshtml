@@ -1,0 +1,20 @@
+﻿
+
+
+ @model Melidya.WebUI.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+<br />
+
+@using (Html.BeginForm("LoginIndex", "Login", FormMethod.Post))
+{
+@Html.TextBoxFor(x => x.username, new { placeholder = " kullanıcı adı" });
+@Html.TextBoxFor(x => x.password, new { placeholder = " Şifre" });
+
+<input type="submit" value=" login" />
+}

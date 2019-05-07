@@ -23,7 +23,18 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    @if(Session["Login"]==null){
+                        
+                        <li>@Html.ActionLink("Login", "Login", "Login")</li>
+                    }
+                    <li></li>
                 </ul>
+                @if(Session["Login"]!=null)
+                {
+               <b style="color:white" ><b>HOS GELDİNİZ</b> @Session["Login"].ToString()</b> 
+
+                }
             </div>
         </div>
     </div>
