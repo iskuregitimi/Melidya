@@ -15,5 +15,10 @@ namespace Melidya.BLL
         {
             return db.Orders.Where(x => x.CustomerID == id).ToList();
         }
+
+        public static List<Order_Details> GetOrder_Details(int orderID)
+        {
+            return db.Order_Details.Where(x => x.OrderID == orderID).ToList();
+        }
     }
 }

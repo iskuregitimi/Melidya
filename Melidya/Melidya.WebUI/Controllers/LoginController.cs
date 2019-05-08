@@ -28,9 +28,13 @@ namespace Melidya.WebUI.Controllers
             Session["CustomerID"] = model.CustomerID;
 
             string CustomerID = model.CustomerID;
-         var customer=   CustomerBLL.GetCustomers(customerid);
-            ViewBag.name = customer.ContactName;
-            return RedirectToAction("Index","Order");
+
+            var customer = CustomerBLL.GetCustomers(customerid);
+            Session["ContactName"] = customer.ContactName;
+
+            return RedirectToAction("Index", "Order");
         }
+
+
     }
 }

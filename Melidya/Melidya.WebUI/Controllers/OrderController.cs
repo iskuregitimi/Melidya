@@ -25,5 +25,12 @@ namespace Melidya.WebUI.Controllers
             return View(model);
           
         }
+
+        public ActionResult OrderDetail(int OrderID)
+        {
+            var orderDetails=OrderBLL.GetOrder_Details(OrderID);
+
+            return View(orderDetails) ;
+        }
     }
 }

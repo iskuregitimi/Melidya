@@ -67,7 +67,7 @@
     @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin" }))
     {
         <h2 class="form-signin-heading">Giriş Paneli</h2>
-        @Html.TextBoxFor(m => m.CustomerID, new { @class = "form-control" , placeholder = "Customer ID" })
+        @Html.TextBoxFor(m => m.CustomerID, new { @class = "form-control", placeholder = "Customer ID" })
         <br />
         @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
         <br />
@@ -76,6 +76,5 @@
 
     }
 </div>
-
 
 
