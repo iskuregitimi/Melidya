@@ -1,0 +1,31 @@
+﻿@model List<Melidya.Entities.Order_Detail>
+
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderDetails</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Product ID</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Discount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ProductID</th>
+                <td>@item.Quantity</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.Discount</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

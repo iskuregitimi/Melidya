@@ -1,0 +1,33 @@
+﻿@model List<Melidya.Entities.Order>
+
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Orders</h2>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Order Date</th>
+            <th scope="col">Shipped Date</th>
+            <th scope="col">Ship City</th>
+            <th scope="col">Ship Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.OrderID</th>
+                <td>@item.OrderDate</td>
+                <td>@item.ShippedDate</td>
+                <td>@item.ShipCity</td>
+                <td>@item.ShipCountry</td>
+                <td> <a href="/Order/OrderDetails/@item.OrderID" class="btn btn-danger">Order Details</a></td>
+            </tr>
+        }
+      
+    </tbody>
+</table>

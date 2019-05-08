@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Melidya.Entities
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,6 +9,15 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+
+    @{ 
+        Customer customer = null;
+        if (Session["Login"]!=null)
+        {
+            customer = Session["Login"] as Customer;
+        }
+    }
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -23,6 +33,16 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (Session["Login"]== null)
+                    {
+                        <li>@Html.ActionLink("Login Ol", "LoginOl", "Login")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Order", "Orders", "Order")</li>
+                        <li>@Html.ActionLink(customer.ContactName, "UserProfile", "Profile")</li>
+                    }
+
                 </ul>
             </div>
         </div>
