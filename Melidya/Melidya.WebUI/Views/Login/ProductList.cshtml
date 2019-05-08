@@ -1,0 +1,45 @@
+﻿@using Melidya.Entity
+@model List<Products>
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <br>  <p class="text-center danger ">Product </p>
+    <hr>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+      <div class="col-md-3 table-bordered text-center" >
+      <figure class="card card-product">
+    
+        <div class="img-wrap">
+            <img src="~/Content/images/indir.jpg" style="width:105px; height:150px" />
+
+        </div>
+        <figcaption class="info-wrap">
+            <h5 class="title text-dots">Product Name :  @item.ProductName</h5>
+            <div class="action-wrap">
+
+                <div class="price-wrap h5">
+                    <span class="price-new">Price : @item.UnitPrice</span>
+                </div> <!-- price-wrap.// -->
+                <a href="#" class="btn btn-primary btn-sm " style="margin-left:200px;"> Order </a>
+         
+            </div> <!-- action-wrap -->
+        </figcaption>
+    </figure> <!-- card // -->
+</div> <!-- col // -->
+        }
+
+
+
+    </div> <!-- row.// -->
+
+</div>
+<!--container end-->
