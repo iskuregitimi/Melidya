@@ -25,12 +25,7 @@
             <td>@item.ShipName</td>
             <td>@item.ShipCity</td>
             <td>@item.OrderDate</td>
-        </tr>
-        <tr>
-            <td>@Html.ActionLink("Edit", "Edit", new {  id=item.OrderID }) |</td>
-            <td>@Html.ActionLink("orderDetails", "orderDetails", new { id = item.OrderID }) |</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { id = item.OrderID })</td>
-
+            <td>@Html.ActionLink("Details", "orderDetails", new { id = item.OrderID })</td>
         </tr>
         }
 
