@@ -20,9 +20,10 @@ namespace Melidya.WebUI.Controllers
             return View(orders);
 
         }
-        public ActionResult OrderDetailIndex()
+        public ActionResult OrderDetailIndex(int id)
         {
-            return View();
+			Order_Detail orderdetay = orderbll.GetOrder_Detail(id);
+            return View(orderdetay);
         }
 
        
