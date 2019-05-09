@@ -15,6 +15,12 @@ namespace Melidya.BLL
         {
             return datacontext.Categories.ToList();
         }
+        public static void InsertCategories(Categories categories)
+        {
+
+            datacontext.Categories.Add(categories);
+            datacontext.SaveChanges();
+        }
 
     }
 }

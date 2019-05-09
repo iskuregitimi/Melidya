@@ -1,4 +1,5 @@
-﻿using Melidya.BLL;
+﻿using Melidya.AdminWebUI.Models;
+using Melidya.BLL;
 using Melidya.DAL;
 using System;
 using System.Collections.Generic;
@@ -16,15 +17,18 @@ namespace Melidya.AdminWebUI.Controllers
             return View();
         }
 
-        public ActionResult AdminLogin(Admin ladmin)
+        public ActionResult AdminLogin(AdminLoginModel model)
         {
-            Admin admin = AdminBLL.getAdmin(ladmin.AUser);
-            if (admin.APassword== ladmin.APassword)
+            Employees employees = new Employees();
+            employees = EmployeeBLL.GetEmployees(model.FirstName);
+            if (employees.Password== model.Password)
             {
-                Session["AdminLogin"] = admin;
+                Session["AdminLogin"] = employees;
                 return RedirectToAction("categories", "Categories");
             }
-            return RedirectToAction("categories", "Categories");
+            return RedirectToAction("Home", "Index");
         }
     }
+
+    
 }

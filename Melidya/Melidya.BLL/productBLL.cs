@@ -21,6 +21,13 @@ namespace Melidya.BLL
 
         }
 
+        public static void addProducts(Products products)
+        {
+            dataContext.Products.Add(products);
+            dataContext.SaveChanges();
+
+        }
+
 
     }
 }

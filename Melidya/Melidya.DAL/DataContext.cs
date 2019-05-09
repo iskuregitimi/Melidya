@@ -12,7 +12,6 @@ namespace Melidya.DAL
         {
         }
 
-        public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
@@ -24,19 +23,9 @@ namespace Melidya.DAL
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<productYedek> productYedek { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Admin>()
-                .Property(e => e.AUser)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Admin>()
-                .Property(e => e.APassword)
-                .IsFixedLength();
-
             modelBuilder.Entity<CustomerDemographics>()
                 .Property(e => e.CustomerTypeID)
                 .IsFixedLength();
@@ -103,10 +92,6 @@ namespace Melidya.DAL
             modelBuilder.Entity<Territories>()
                 .Property(e => e.TerritoryDescription)
                 .IsFixedLength();
-
-            modelBuilder.Entity<productYedek>()
-                .Property(e => e.UnitPrice)
-                .HasPrecision(19, 4);
         }
     }
 }
