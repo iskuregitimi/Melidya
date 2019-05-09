@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.WebUI", "Melidya.WebUI\Melidya.WebUI.csproj", "{4FB464DA-EEC4-4DDE-8439-3345AB95A529}"
 EndProject
@@ -13,6 +13,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.DAL", "Melidya.DAL\Melidya.DAL.csproj", "{8CE53C16-BF71-4795-8065-53118FDA25FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.BLL", "Melidya.BLL\Melidya.BLL.csproj", "{AA3D89F1-651F-451A-8EA4-919E0D354A7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.AdminWebUI", "Melidya.AdminWebUI\Melidya.AdminWebUI.csproj", "{4AE2E5F5-9462-435D-BF2E-27614D2B5C90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{AA3D89F1-651F-451A-8EA4-919E0D354A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA3D89F1-651F-451A-8EA4-919E0D354A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA3D89F1-651F-451A-8EA4-919E0D354A7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE2E5F5-9462-435D-BF2E-27614D2B5C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE2E5F5-9462-435D-BF2E-27614D2B5C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE2E5F5-9462-435D-BF2E-27614D2B5C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE2E5F5-9462-435D-BF2E-27614D2B5C90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

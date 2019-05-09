@@ -1,19 +1,16 @@
 ﻿@using Melidya.DAL
 @model List<Products>
-
 @{
     ViewBag.Title = "GetProduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>GetProduct</h2>
-
 <table class="table">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
+            <th scope="col">Name</th>
+            <th scope="col">UnitPrice</th>
             <th scope="col">Handle</th>
         </tr>
     </thead>
@@ -21,18 +18,16 @@
         @foreach (Products item in Model)
         {
             <tr>
-                <th scope="row">@item.ProductID</th>
+                <th scope="row">
+                    <img src="~/Image/cc291_Sutlu_Cikolata_Kapli_Lokum_500g.png" width="50" height="50" />
+                </th>
                 <td>@item.ProductName</td>
                 <td>@item.UnitPrice</td>
-                <td>@item.QuantityPerUnit</td>
-
+                <td>
+                    <a href="/Sepet/sepetekle/@item.ProductID" class="btn btn-primary">Sepete Ekle</a>
+                </td>
             </tr>
-        <td>
-            @Html.ActionLink("SepeteEkle", "sepetekle", new { id = item.ProductID }) |
-            @Html.ActionLink("SepettenKaldır", "Sil", new { id = item.ProductID })
-        </td>
-    }
+        }
 
-
-        </tbody>
-    </table>
+    </tbody>
+</table>

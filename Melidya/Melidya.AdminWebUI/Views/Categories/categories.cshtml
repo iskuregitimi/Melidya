@@ -1,0 +1,39 @@
+﻿@using Melidya.DAL
+@model List<Categories>
+
+@{
+    ViewBag.Title = "categories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">CategoryName</th>
+            <th scope="col">Picture</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Categories item in Model)
+        {
+
+            <tr>
+                <th scope="row">@item.CategoryID</th>
+                <td>@item.CategoryName</td>
+                <td>@item.Picture</td>
+
+                <td>
+                    @if (item.Picture != null)
+                    {
+                        <img src="data:image/gif;base64,@Convert.ToBase64String(item.Picture)" />
+                    }
+                    
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

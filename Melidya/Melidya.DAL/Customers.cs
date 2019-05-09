@@ -58,10 +58,5 @@ namespace Melidya.DAL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerDemographics> CustomerDemographics { get; set; }
-
-        public override string ToString()
-        {
-            return ContactName;
-        }
     }
 }

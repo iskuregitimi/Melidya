@@ -12,6 +12,7 @@ namespace Melidya.DAL
         {
         }
 
+        public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
@@ -28,6 +29,14 @@ namespace Melidya.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.AUser)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.APassword)
+                .IsFixedLength();
+
             modelBuilder.Entity<CustomerDemographics>()
                 .Property(e => e.CustomerTypeID)
                 .IsFixedLength();

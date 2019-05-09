@@ -15,9 +15,9 @@ namespace Melidya.BLL
         {
             return dataContext.Products.ToList();
         }
-        public static Products ListeyeEkle(int productİD)
+        public static Products ListeyeEkle(int productID)
         {
-            return dataContext.Products.Where(x => x.ProductID == productİD).FirstOrDefault();
+            return dataContext.Products.FirstOrDefault(x => x.ProductID == productID);
 
         }
 

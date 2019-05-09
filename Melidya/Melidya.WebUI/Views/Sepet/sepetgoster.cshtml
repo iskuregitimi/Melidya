@@ -1,37 +1,60 @@
-﻿@using Melidya.DAL
-@model List<Products>
+﻿@using Melidya.WebUI.Models
+@model List<SepetModel>
+
 @{
     ViewBag.Title = "sepetgoster";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>sepetgoster</h2>
-
 <table class="table">
     <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
+            <th scope="col">Quantity</th>
             <th scope="col">Handle</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (Products item in Model)
+        @foreach (SepetModel item in Model)
         {
             <tr>
-                <th scope="row">@item.ProductID</th>
+                <th scope="row">
+<img src="~/Image/cc291_Sutlu_Cikolata_Kapli_Lokum_500g.png" height="50" width="50" /></th>
                 <td>@item.ProductName</td>
                 <td>@item.UnitPrice</td>
-                <td>@item.QuantityPerUnit</td>
-
+                <td>@item.Quantity</td>
+                <td>
+                    @Html.ActionLink("SepettenKaldır", "Sil", new { id = item.ProductID })
+                </td>
             </tr>
-        <td>
-            @Html.ActionLink("SepeteEkle", "sepetekle", new { id = item.ProductID }) |
-            @Html.ActionLink("SepettenKaldır", "Sil", new { id = item.ProductID })
-        </td>
-    }
+        }
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+            <td>Sepet Tutarı :</td>
+            <td>@Session["SepetTutar"] TL</td>
+        </tr>
+        @if (Session["Sepet"]!=null)
+        {
 
-
-        </tbody>
-    </table>
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+            <td>Kargo :</td>
+            <td>6.90 TL</td>
+        </tr>
+        }
+        <tr>
+            <th></th>
+            <td></td>
+            <td></td>
+            <td>Toplam Tutar :</td>
+            <td>@Session["ToplamTutar"] TL</td>
+        </tr>
+    </tbody>
+</table>

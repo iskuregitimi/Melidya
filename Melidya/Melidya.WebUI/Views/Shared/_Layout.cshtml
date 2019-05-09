@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Melidya.DAL
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,6 +9,13 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+    @{
+        Customers customer = null;
+        if (Session["Login"] != null)
+        {
+            customer = Session["Login"] as Customers;
+        }
+    }
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -28,23 +36,24 @@
                         <li>@Html.ActionLink("Login", "Index", "Login")</li>
                     }
 
-
                 </ul>
                 @if (Session["Login"] != null)
                 {
-                    <b style="color:white">@Session["Login"].ToString() </b>
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Order", "Order", "Order")</li>
-                        <li>@Html.ActionLink("Profil", "Profill", "Profil")</li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Profil")</li>
+                        <li><a href="/Profil/Profill">Profil</a></li>
+                       
                         <li>@Html.ActionLink("Product", "GetProduct", "Product")</li>
+                    </ul>
+                    <ul class="nav navbar-nav" style="float:right">
+                        <li><a style="color:cornflowerblue; float:right;">@customer.ContactName </a></li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Profil")</li>
                     </ul>
                 }
                 @if (Session["Sepet"] != null)
-                {<ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("SepetGöster", "sepetgoster", "Sepet")</li>
-                        
-                    </ul>
+                {<ul class="nav navbar-nav" style="float:right;">
+                    <li>@Html.ActionLink("SepetGöster" + " " + Session["Count"].ToString(), "sepetgoster", "Sepet")</li>
+                </ul>
 
                 }
             </div>
@@ -57,7 +66,6 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

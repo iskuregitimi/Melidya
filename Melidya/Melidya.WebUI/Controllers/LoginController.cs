@@ -1,5 +1,6 @@
-﻿    using Melidya.BLL;
+﻿using Melidya.BLL;
 using Melidya.DAL;
+using Melidya.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,11 @@ namespace Melidya.WebUI.Controllers
         {
             return View();
         }
-        public ActionResult Login(string UserName, string password)
+        public ActionResult Login(LoginModel model)
         {
 
-            Customers customer= LoginBLL.LoginCustomers(UserName);
-            if (customer.Password==password)
+            Customers customer = LoginBLL.LoginCustomers(model.UserName);
+            if (customer.Password == model.Password)
             {
                 Session["Login"] = customer;
 
@@ -30,6 +31,6 @@ namespace Melidya.WebUI.Controllers
             return RedirectToAction("Index");
         }
 
-       
+
     }
 }

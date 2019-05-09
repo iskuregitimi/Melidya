@@ -25,27 +25,10 @@ namespace Melidya.WebUI.Controllers
 
 
             return View(products);
-
-            //List<Product> productList = new List<Product>(); 
-            //     if (HttpContext.Current.Session["BasketProducts"] == null) 
-            //     { 
-            //         return productList; 
-            //     } 
-            //     else 
-            //     { 
-            //         productList = (List<Product>) HttpContext.Current.Session["BasketProducts"]; 
-            //         return productList; 
-            //     } 
-
+            
         }
 
-        public  ActionResult sepetekle(int id)
-        {
-            List<Products> products = new List<Products>();
-
-            Session["Sepet"] = productBLL.ListeyeEkle(id);
-            return RedirectToAction("sepetgoster", "Sepet");
-        }
+       
         
     }
 }

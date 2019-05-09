@@ -20,5 +20,10 @@ namespace Melidya.BLL
         {
             datacontext.SaveChanges();
         }
+
+        public static Customers getcustomer(string id)
+        {
+            return datacontext.Customers.FirstOrDefault(x=>x.CustomerID==id);
+        }
     }
 }

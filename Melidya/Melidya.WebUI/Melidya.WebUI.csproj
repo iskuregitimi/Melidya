@@ -146,6 +146,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\OrdersModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\SepetModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +158,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\cc291_Sutlu_Cikolata_Kapli_Lokum_500g.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -187,9 +189,10 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\Order\Orderdetail.cshtml" />
-    <Content Include="Views\Profil\Profill.cshtml" />
     <Content Include="Views\Product\GetProduct.cshtml" />
     <Content Include="Views\Sepet\sepetgoster.cshtml" />
+    <Content Include="Views\Profil\Update.cshtml" />
+    <Content Include="Views\Profil\Profill.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
