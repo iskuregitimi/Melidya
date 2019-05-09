@@ -1,10 +1,9 @@
-namespace Melidya.DAL
+namespace Melidya.ENTITY
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-    using Melidya.ENTITY;
 
     public partial class DataContext : DbContext
     {
@@ -14,6 +13,7 @@ namespace Melidya.DAL
         }
 
         public virtual DbSet<Categories> Categories { get; set; }
+        public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<Order_Details> Order_Details { get; set; }
@@ -26,6 +26,15 @@ namespace Melidya.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<CustomerDemographics>()
+                .Property(e => e.CustomerTypeID)
+                .IsFixedLength();
+
+            modelBuilder.Entity<CustomerDemographics>()
+                .HasMany(e => e.Customers)
+                .WithMany(e => e.CustomerDemographics)
+                .Map(m => m.ToTable("CustomerCustomerDemo").MapLeftKey("CustomerTypeID").MapRightKey("CustomerID"));
+
             modelBuilder.Entity<Customers>()
                 .Property(e => e.CustomerID)
                 .IsFixedLength();

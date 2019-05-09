@@ -37,7 +37,18 @@
                     {
                         <li class="nav-item">@Html.ActionLink("Orders", "Index", "Order")</li>
                         <li class="nav-item"><a href="/Login/Profil/"><i class="glyphicon glyphicon-user"></i>&nbsp;Profilim</a></li>
-                        <li class="nav-item"><a href="/Product/Sepet/"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Sepetim</a></li>
+                        <li class="nav-item">
+                            <a href="/Product/Sepet/">
+                                <i class="glyphicon glyphicon-shopping-cart"></i>&nbsp;Sepetim&nbsp;
+                                @if (Session["Sepet"] != null)
+                                {
+                                    @Session["Count"]
+                                }
+                            </a>
+                        </li>
+                      
+                           
+
                     }
 
                 </ul>
@@ -55,7 +66,7 @@
                     {
                         <li class="nav-item">
                             <a href="/Login/Login/"><i class="glyphicon glyphicon-log-in"></i>&nbsp;Log In</a>
-                            
+
                         </li>
                     }
                 </ul>

@@ -6,6 +6,7 @@
 }
 
 <section>
+    <br />
     <div class="container">
         <div class="row">
             @foreach (Products item in Model)
@@ -14,7 +15,7 @@
                     <img src="~/Content/images/cifte-kavrulmus-fistikli-lokum.jpg" width="200" height="200" /><br />
                     <b> @item.ProductName</b> <br />
                     <b> @item.UnitPrice</b><br />
-                    <button class="btn btn-primary"><i class="glyphicon glyphicon-shopping-cart"></i>Sepete Ekle</button>
+                    <a href="/Product/AddSepet/@item.ProductID" class="btn btn-primary"><i class="glyphicon glyphicon-shopping-cart"></i>Sepete Ekle</a>
                 </div>              
             }
         </div>

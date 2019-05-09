@@ -49,7 +49,7 @@ namespace Melidya.WebUI.Controllers
         {
             Session.Remove("Login");
             Session.Clear();             
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Login","Login");
         }
 
         public ActionResult Profil()

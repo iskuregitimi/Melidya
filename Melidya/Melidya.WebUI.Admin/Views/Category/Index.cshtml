@@ -1,0 +1,36 @@
+﻿@using Melidya.ENTITY
+@model List<Categories>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Category Name</th>
+            <th>Description</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Categories item in Model)
+        {
+            <tr>
+                <th scope="row">@item.CategoryID</th>
+                <td>@item.CategoryName</td>
+                <td>@item.Description</td> 
+                <td><a href="/Category/Delete">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a href="/Category/AddCategory" class="btn btn-primary">Add Category</a>
+</p>

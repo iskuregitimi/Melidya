@@ -9,8 +9,9 @@
     <thead>
         <tr>
             <th>#</th>
-            <th>Ship Name</th>
-            <th>Ship Country</th>
+            <th>Contact Name</th>
+            <th>Freight</th>
+            <th>Employee First Name</th>
             <th>Order Date</th>
             <th>Detay</th>
         </tr>
@@ -18,14 +19,15 @@
     <tbody>
         @foreach (Orders item in Model)
         {
-            <tr>
-                <th scope="row">@item.OrderID</th>
-                <td>@item.ShipName</td>
-                <td>@item.ShipCountry</td>
-                <td>@item.OrderDate</td>
-                <td><a href="/Order/GetDetails/@item.OrderID">Detail</a></td>
-                
-            </tr>
+        <tr>
+            <th scope="row">@item.OrderID</th>
+            <td>@item.Customers.ContactName</td>
+            <td>@item.Freight</td>
+            <td>@item.Employees.FirstName</td>
+            <td>@item.OrderDate</td>
+            <td><a href="/Order/GetDetails/@item.OrderID">Detail</a></td>
+
+        </tr>
         }
     </tbody>
 </table>

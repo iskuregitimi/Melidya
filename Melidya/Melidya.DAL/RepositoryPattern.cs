@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Melidya.ENTITY;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -10,10 +11,10 @@ namespace Melidya.DAL
     public class RepositoryPattern<T> where T:class
     {
         DataContext db = new DataContext();
-        public int Delete(T obj)
+        public void Delete(T obj)
         {
             db.Set<T>().Remove(obj);
-            return Save();
+            Save();
         }
 
         public T Find(Expression<Func<T, bool>> where)

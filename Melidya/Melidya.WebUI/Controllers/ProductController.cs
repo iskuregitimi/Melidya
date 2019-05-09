@@ -1,5 +1,6 @@
 ﻿using Melidya.BLL;
 using Melidya.ENTITY;
+using Melidya.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,84 @@ namespace Melidya.WebUI.Controllers
         // GET: Product
         public ActionResult Index()
         {
-            List<Products> products = productbll.GetProducts(); 
+            List<Products> products = productbll.GetProducts();
             return View(products);
         }
 
         public ActionResult Sepet()
         {
-            return View();
+            decimal toplamfiyat = 0;
+            decimal subtotal = 0;
+            List<SepetModel> models = Session["Sepet"] as List<SepetModel>;
+            foreach (SepetModel item in models)
+            {
+                subtotal += Convert.ToDecimal(item.Quantity * item.Price);
+                toplamfiyat=subtotal + (decimal)6.90;
+            }
+            Session["Count"] = models.Count();
+            Session["Subtotal"] = subtotal;
+            Session["Toplam"] = toplamfiyat;
+            return View(models);
         }
+
+        public ActionResult AddSepet(int id)
+        {
+            Products product = productbll.GetProduct(id);
+            if (Session["Sepet"] == null)
+            {
+                List<SepetModel> newModel = new List<SepetModel>();
+                Session["Sepet"] = newModel;
+            }
+            SepetModel model = new SepetModel
+            {
+                ProductName = product.ProductName,
+                ProductID = product.ProductID,
+                Price = product.UnitPrice,
+                Quantity = 1
+            };
+            List<SepetModel> models = Session["Sepet"] as List<SepetModel>;
+            if (models != null)
+            {
+                SepetModel sepet = models.Find(x => x.ProductID == model.ProductID);
+                
+
+                if (sepet != null)
+                {
+                    sepet.Quantity += 1;
+                }
+                else
+                {
+                    models.Add(model);
+                }
+            }
+            else
+            {
+                models.Add(model);
+            }
+            Session["Count"] = models.Count();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteSepet(int id)
+        {
+            List<SepetModel> models = Session["Sepet"] as List<SepetModel>;
+            if (Session["Sepet"] != null)
+            {
+                SepetModel sepet = models.Find(x => x.ProductID == id);
+
+                if (sepet.Quantity > 1)
+                {
+                    sepet.Quantity -= 1;
+                }
+                else
+                {
+                    models.Remove(sepet);
+                }
+            }
+            return RedirectToAction("Sepet", "Product");
+
+        }
+
+
     }
 }

@@ -19,6 +19,9 @@ namespace Melidya.ENTITY
         [Key]
         public int EmployeeID { get; set; }
 
+        [StringLength(20)]
+        public string Password { get; set; }
+
         [Required]
         [StringLength(20)]
         public string LastName { get; set; }
