@@ -23,7 +23,7 @@
                     <figcaption class="info-wrap">
                         <h3 class="title text-dots" style=" height:40px;" ><a href="#">@item.ProductName</a></h3>
                         <div class="action-wrap">
-                            <a href="#" class="btn btn-primary btn-sm" style="float:right"> Add to Cart </a>
+                            <a href='@Url.Action("addToCart", "Product")' class="btn btn-primary btn-sm" style="float:right"> Add to Cart </a>
                             <div class="price-wrap h3">
                                 <span class="price-new">@item.UnitPrice $</span>
                             </div> 

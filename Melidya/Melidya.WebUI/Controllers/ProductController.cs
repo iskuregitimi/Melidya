@@ -21,5 +21,11 @@ namespace Melidya.WebUI.Controllers
             List<Product> productList = ProductBLL.GetProducts();
             return View(productList);
         }
+
+        public ActionResult addToCart(Product product)
+        {
+            Session["Cart"] = product.ProductName;
+            return View();
+        }
     }
 }

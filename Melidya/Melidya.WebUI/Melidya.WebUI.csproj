@@ -190,6 +190,7 @@
     <Content Include="Views\Login\profile.cshtml" />
     <Content Include="Views\Product\getProducts.cshtml" />
     <Content Include="Views\Cart\shoppingCart.cshtml" />
+    <Content Include="Views\Product\addToCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
