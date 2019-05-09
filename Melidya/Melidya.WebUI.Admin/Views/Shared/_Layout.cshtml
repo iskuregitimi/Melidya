@@ -1,13 +1,26 @@
 ﻿<!DOCTYPE html>
+@using Melidya.ENTITY
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
+
+    @{
+        Employees employee = null;
+        if (Session["Admin"] != null)
+        {
+            employee = Session["Admin"] as Employees;
+           
+        }
+
+
+    }
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -21,8 +34,22 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li><a href="/Category/Index">Categories</a></li>
-                    <li><a href="/Product/Index">Products</a></li>
+
+
+                    @if (Session["Admin"] != null)
+                    {
+                        <li class="nav-item"><a href="/Category/Index/">Categories</a></li>
+                        <li class="nav-item"><a href="/Product/Index">Products</a></li>
+                        string fullname = employee.LastName + " " + employee.FirstName;
+                        <li class="nav-item"><a>@fullname</a></li>
+                        <li><a href="/Login/Logout"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Log Out</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Login/Login"><i class="glyphicon glyphicon-log-in"></i>&nbsp;Log In</a></li>
+                    }
+
+
                 </ul>
             </div>
         </div>

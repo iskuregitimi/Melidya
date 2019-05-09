@@ -1,0 +1,37 @@
+﻿@model Melidya.ENTITY.Employees
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <section class="kapsul ">
+        <div class="container ">
+            <div class="input-group mb-3">
+                <h2>Log In!</h2>
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Kullanıcı Adı : </span>
+                </div>
+                @Html.TextBoxFor(x => x.LastName
+           , new { @class = "form-control e-posta", placeholder = "Kullanıcı Adı" })
+            </div>
+            <br />
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Şifre : </span>
+                </div>
+                @Html.TextBoxFor(x => x.Password, new { @class = "form-control sifre", placeholder = "Şifre", type = "Password" })
+            </div>
+            <br />
+            <input type="submit" value="Giriş" class="btn btn-success btn-lg" />
+        </div>
+    </section>
+
+}
+

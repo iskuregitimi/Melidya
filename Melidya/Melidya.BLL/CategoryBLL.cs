@@ -27,12 +27,19 @@ namespace Melidya.BLL
             cate.Description = category.Description;         
             db.Categories.Add(cate);
             db.SaveChanges();
+        
         }
 
         public void Delete(Categories categories)
         {
-            db.Categories.Remove(categories);
+            Categories category = db.Categories.FirstOrDefault(x => x.CategoryID == categories.CategoryID);
+            db.Categories.Remove(category);
             db.SaveChanges();
+        }
+
+        public Categories GetCategory(int id)
+        {
+            return db.Categories.FirstOrDefault(x => x.CategoryID == id);
         }
     }
 }

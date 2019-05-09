@@ -7,8 +7,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
 <table class="table">
     <thead>
         <tr>
@@ -16,17 +14,19 @@
             <th>Category Name</th>
             <th>Description</th>
             <th>Delete</th>
+            <th>Product</th>
         </tr>
     </thead>
     <tbody>
         @foreach (Categories item in Model)
         {
-            <tr>
-                <th scope="row">@item.CategoryID</th>
-                <td>@item.CategoryName</td>
-                <td>@item.Description</td> 
-                <td><a href="/Category/Delete">Delete</a></td>
-            </tr>
+        <tr>
+            <th scope="row">@item.CategoryID</th>
+            <td>@item.CategoryName</td>
+            <td>@item.Description</td>
+            <td><a href="/Product/AddProduct/@item.CategoryID">Add Product</a></td>
+            <td><a href="/Category/Delete/@item.CategoryID">Delete</a></td>
+        </tr>
         }
     </tbody>
 </table>

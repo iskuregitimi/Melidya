@@ -39,8 +39,6 @@ namespace Melidya.ENTITY
 
         public bool Discontinued { get; set; }
 
-        public bool? Secim { get; set; }
-
         public virtual Categories Categories { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

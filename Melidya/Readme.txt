@@ -18,3 +18,24 @@
 -----SEPET konusu konuþulacak ----------------------------------------------------
 - Ürünler sayfasýnda her ürünün yanýnda sepete ekle butonu olacak. 
 - Header'a sepetim linki eklenecek ve bu link týklandýðýnda sepetteki ürünler gösterilecek.
+- Sepet iconunda ürünlerin adedi gösterilecek
+
+
+-- Admin uygulamasý yapýlacak ----------------------------------------------------
+- Employee ler admin olarak login olabilecek. (Password kolonu açýlacak)
+- Categori listeleme- ekleme sayfalarý yapýlacak
+- Ürün ekleme sayfasý yapýlacak.  (categorilere ürünler eklenebilecek)
+- Sipariþ listesi sayfasý yapýlacak
+  Böylece admin kullanýcýsý sitede müþterilerin verdiði sipariþleri görecek.
+  Bu sayfadaki liste þu þekilde olacak "OrderId, Contact Name, OrderDate, Total Amount, Ship Address"
+  (Yeni bir model oluþturmanýz gerek. Total amountu hesaplatmanýz gerek.Joinli bir linq querysi)
+
+- Sipariþler tablosuna durum kolonu eklenecek. Yeni-Onaylandý-Kargoya verildi þeklinde 3 durum verilebilecek. 
+
+- Authentication/Authorization yapýsý kurulacak. (Roller: Admin,Onaycý,Kargocu)
+- Employee ler bu rollere atanabilecek. 
+
+- Admin olan kullanýcý bütün iþlemleri yapabilecek
+- Onaycý sadece sipariþi onaylayacak
+- Kargocu sadece onaylanmýþ sipariþi kargoya verildi yapabilecek. 
+

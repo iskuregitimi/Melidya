@@ -1,0 +1,83 @@
+﻿
+.kapsul {
+    width: 350px;
+    height: 350px;
+    margin: 100px auto;
+    padding-top: 34px;
+    padding-left: 37px;
+    padding-right: 38px;
+    background-color: darkgray;
+}
+
+    .kapsul .e-posta {
+        width: 200px;
+        height: 40px;
+        margin: 0px auto;
+        display: block;
+        border: 50px;
+        padding-left: 50px;
+        line-height: 40px;
+        outline: none;
+        margin-bottom: 30px;
+        color: #929292;
+    }
+
+    .kapsul .sifre {
+        width: 200px;
+        height: 40px;
+        margin: 0px auto;
+        display: block;
+        border: 50px;
+        padding-left: 50px;
+        line-height: 40px;
+        outline: none;
+        margin-bottom: 24px;
+        color: #929292;
+    }
+
+    .kapsul input.hatirla {
+        position: relative;
+        cursor: pointer;
+        margin-left: 6px;
+    }
+
+        .kapsul input.hatirla:after {
+            background: url('../images/bg-hatirla.png') no-repeat;
+            width: 23px;
+            height: 17px;
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        .kapsul input.hatirla.aktif:after {
+            background: url('../images/bg-hatirla-aktif.png');
+            width: 23px;
+            height: 17px;
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+    .kapsul span.hatirla {
+        margin-left: 14px;
+        color: #929292;
+        line-height: 21px;
+    }
+
+    .kapsul .buton {
+        width: 250px;
+        height: 40px;
+        margin: 0px auto;
+        display: block;
+        border: 0px;
+        line-height: 40px;
+        outline: none;
+        color: #fff;
+        padding: 0px 50px;
+        cursor: pointer;
+        border-radius: 4px;
+        margin-top: 22px;
+    }
