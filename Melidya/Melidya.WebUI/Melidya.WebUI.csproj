@@ -137,12 +137,15 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProfilController.cs" />
+    <Compile Include="Controllers\SepetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\OrdersModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +188,8 @@
     <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\Order\Orderdetail.cshtml" />
     <Content Include="Views\Profil\Profill.cshtml" />
+    <Content Include="Views\Product\GetProduct.cshtml" />
+    <Content Include="Views\Sepet\sepetgoster.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -210,10 +215,6 @@
     <ProjectReference Include="..\Melidya.DAL\Melidya.DAL.csproj">
       <Project>{8ce53c16-bf71-4795-8065-53118fda25fc}</Project>
       <Name>Melidya.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Melidya.ENTITY\Melidya.ENTITY.csproj">
-      <Project>{efa7fd7f-948e-42a1-9f10-8e8d20c88d86}</Project>
-      <Name>Melidya.ENTITY</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

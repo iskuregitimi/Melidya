@@ -1,0 +1,38 @@
+﻿@using Melidya.DAL
+@model List<Products>
+
+@{
+    ViewBag.Title = "GetProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetProduct</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Products item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ProductID</th>
+                <td>@item.ProductName</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.QuantityPerUnit</td>
+
+            </tr>
+        <td>
+            @Html.ActionLink("SepeteEkle", "sepetekle", new { id = item.ProductID }) |
+            @Html.ActionLink("SepettenKaldır", "Sil", new { id = item.ProductID })
+        </td>
+    }
+
+
+        </tbody>
+    </table>

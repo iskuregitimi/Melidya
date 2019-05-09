@@ -27,8 +27,8 @@
                     {
                         <li>@Html.ActionLink("Login", "Index", "Login")</li>
                     }
-                   
-                    
+
+
                 </ul>
                 @if (Session["Login"] != null)
                 {
@@ -37,7 +37,15 @@
                         <li>@Html.ActionLink("Order", "Order", "Order")</li>
                         <li>@Html.ActionLink("Profil", "Profill", "Profil")</li>
                         <li>@Html.ActionLink("Logout", "Logout", "Profil")</li>
+                        <li>@Html.ActionLink("Product", "GetProduct", "Product")</li>
                     </ul>
+                }
+                @if (Session["Sepet"] != null)
+                {<ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("SepetGöster", "sepetgoster", "Sepet")</li>
+                        
+                    </ul>
+
                 }
             </div>
         </div>

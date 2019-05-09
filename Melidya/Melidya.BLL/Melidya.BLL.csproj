@@ -52,6 +52,7 @@
     <Compile Include="CustommerBLL.cs" />
     <Compile Include="LoginBLL.cs" />
     <Compile Include="OrderBLL.cs" />
+    <Compile Include="productBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,10 +63,6 @@
     <ProjectReference Include="..\Melidya.DAL\Melidya.DAL.csproj">
       <Project>{8ce53c16-bf71-4795-8065-53118fda25fc}</Project>
       <Name>Melidya.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Melidya.ENTITY\Melidya.ENTITY.csproj">
-      <Project>{efa7fd7f-948e-42a1-9f10-8e8d20c88d86}</Project>
-      <Name>Melidya.ENTITY</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
