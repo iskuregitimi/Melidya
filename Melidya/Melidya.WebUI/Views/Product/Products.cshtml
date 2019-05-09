@@ -1,0 +1,26 @@
+﻿@using Melidya.ENTITY
+@model List<Product>
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (Product item in Model)
+        {
+            <div class="card col-lg-4" style="width: 15rem;">
+                <img src="~/images/indir.jpg" class="card-img-top;" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.ProductName</h5>
+                    <p class="card-text">@item.UnitPrice</p>
+                    <a href="#" class="btn btn-primary">Sepete Ekle</a>
+                </div>
+            </div>
+        }
+
+    </div>
+
+
+</div>
+

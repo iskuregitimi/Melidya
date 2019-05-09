@@ -14,6 +14,7 @@
 @using (Html.BeginForm("LoginIndex", "Login", FormMethod.Post))
 {
 @Html.TextBoxFor(x => x.username, new { placeholder = " kullanıcı adı" });
+    <br />
 @Html.TextBoxFor(x => x.password, new { placeholder = " Şifre" });
 
 <input type="submit" value=" login" />

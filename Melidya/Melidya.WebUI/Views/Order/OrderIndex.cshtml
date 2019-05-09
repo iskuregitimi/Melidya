@@ -84,7 +84,8 @@
             @Html.DisplayFor(modelItem => item.ShipCountry)
         </td>
         <td>
-            @Html.ActionLink("Detaylar", "OrderDetailIndex", new { id=item.OrderID }) 
+            @Html.ActionLink("Detaylar", "OrderDetailIndex", new { id=item.OrderID },new {@class="btn btn-primary" }) 
+            @*<a href="/Order/OrderDetailIndex/@item.OrderID" class="btn btn-primary"> Detaylar</a>*@ 
             
         </td>
     </tr>

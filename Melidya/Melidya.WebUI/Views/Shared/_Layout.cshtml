@@ -29,25 +29,21 @@
                 </ul>
                 @if(Session["Login"]!=null)
                 {
-				<ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
 
 
 
-					<li><b class="text-center" style="color:hotpink;"><b>HOS GELDİNİZ</b> @Session["Login"].ToString()</b></li>
+                    <li><b class="text-center" style="color:hotpink;"><b>HOS GELDİNİZ</b> @Session["Login"].ToString()</b></li>
 
-					<li>@Html.ActionLink("Home", "Index", "Home")</li>
-					<li>@Html.ActionLink("Sparişler", "OrderIndex", "Order")</li>
-					<li>@Html.ActionLink("Profilim","Profil","Profil")</li>
-					
-
-
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Sparişler", "OrderIndex", "Order")</li>
+                    <li>@Html.ActionLink("Profilim", "Profil", "Profil")</li>
+                    <li>@Html.ActionLink("Ürünler", "Products", "Product")</li>
 
 
 
-				</ul>
-						
+                </ul>						
 						}
-
 
             </div>
 
