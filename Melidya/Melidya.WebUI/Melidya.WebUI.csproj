@@ -142,6 +142,7 @@
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\SepetModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,8 +190,8 @@
     <Content Include="Views\Order\orderDetails.cshtml" />
     <Content Include="Views\Login\profile.cshtml" />
     <Content Include="Views\Product\getProducts.cshtml" />
-    <Content Include="Views\Cart\shoppingCart.cshtml" />
     <Content Include="Views\Product\addToCart.cshtml" />
+    <Content Include="Views\Cart\showCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

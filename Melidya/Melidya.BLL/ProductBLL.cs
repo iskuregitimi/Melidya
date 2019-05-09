@@ -14,5 +14,10 @@ namespace Melidya.BLL
         {
             return context.Products.ToList();
         }
+
+        public static Product GetProduct(int id)
+        {
+            return context.Products.Where(c => c.ProductID == id).FirstOrDefault();
+        }
     }
 }

@@ -1,19 +1,19 @@
-﻿
+﻿@using Melidya.WebUI.Models
+@model List<SepetModel>
+
 @{
-    ViewBag.Title = "shoppingCart";
+    ViewBag.Title = "showCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>My Cart</h2>
+<h2>showCart</h2>
 
+<link href="~/Content/products.css" rel="stylesheet" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="products.css">
 <!------ Include the above in your HEAD tag ---------->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<br />
-<br />
-<br />
+
 <div class="container mb-4">
     <div class="row">
         <div class="col-12">
@@ -21,22 +21,24 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col"> </th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Number of Stock</th>
-                            <th scope="col" class="text-right">Price</th>
-                            <th> </th>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Handle</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
+                        @foreach (SepetModel item in Model)
                         {
                             <tr>
-                                <td> <img src="~/Content/images/iphone.jpg" width="80" height="100" /></td>
+                                <td> <img src="~/Content/images/iphone.jpg" width="50" height="50" /> </td>
                                 <td>@item.ProductName</td>
-                                <td>@item.UnitsInStock</td>
-                                <td class="text-right">@item.UnitPrice €</td>
-                                <td class="text-right"><button><i class="fa fa-shopping-cart" style="font-size:36px; color:green"></i> </button> </td>
+                                <td>@item.UnitPrice</td>
+                                <td>@item.Quantity</td>
+                                <td>
+                                    @Html.ActionLink("Delete", "delete", new { id = item.ProductID })
+                                </td>
                             </tr>
                         }
                         <tr>
@@ -45,23 +47,26 @@
                             <td></td>
                             <td></td>
                             <td>Sub-Total</td>
-                            <td class="text-right">255,90 €</td>
+                            <td class="text-right">@Session["Price"] $</td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Shipping</td>
-                            <td class="text-right">6,90 €</td>
-                        </tr>
+                        @if (Session["Cart"] != null)
+                        {
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Shipping</td>
+                                <td class="text-right">6,90 $</td>
+                            </tr>
+                        }
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>
-                            <td class="text-right"><strong>346,90 €</strong></td>
+                            <td class="text-right"><strong>@Session["TotalPrice"] $</strong></td>
                         </tr>
                     </tbody>
                 </table>
@@ -79,5 +84,3 @@
         </div>
     </div>
 </div>
-
-

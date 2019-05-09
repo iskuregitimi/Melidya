@@ -10,9 +10,9 @@
 </head>
 <body>
 
-    @{ 
+    @{
         Customer customer = null;
-        if (Session["Login"]!=null)
+        if (Session["Login"] != null)
         {
             customer = Session["Login"] as Customer;
         }
@@ -39,7 +39,6 @@
                         <li>@Html.ActionLink("Orders", "getOrders", "Order")</li>
                         <li>@Html.ActionLink("Profile", "profile", "Login")</li>
                         <li>@Html.ActionLink("Products", "getProducts", "Product")</li>
-                        <li>@Html.ActionLink("My Cart", "shoppingCart", "Cart")</li>
                         <li>@Html.ActionLink("Logout", "logout", "Login")</li>
                     }
 
@@ -47,10 +46,16 @@
 
                 @if (Session["Login"] != null)
                 {
-
                     <b style="color:white; float:right; margin-top:15px"> @Session["Login"].ToString()</b>
-
                 }
+
+                @if (Session["Cart"] != null)
+                {
+                    <ul class="nav navbar-nav" style="float:right; margin-right:15px">
+                        <li style="background-color:green">@Html.ActionLink("Cart("+Session["Count"].ToString()+")", "showCart", "Cart")</li>
+                    </ul>
+                }
+
             </div>
         </div>
     </div>
