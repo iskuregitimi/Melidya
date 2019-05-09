@@ -19,5 +19,21 @@ namespace Melidya.WebUI.Controllers
             var userid= CustomerManager.GetCustomer(user.CustomerID);
             return View(userid);
         }
+    
+         [HttpGet]
+        public ActionResult UpdateProfile()
+        {
+            var user = (Customer)Session["Login"];
+
+           
+
+            return View("UpdateProfile",user);
+        }
+        [HttpPost]
+        public ActionResult UpdateProfile(Customer cus)
+        {
+            CustomerManager.UpdateCustomer(cus);
+            return View("UserProfile",cus);
+        }
     }
 }

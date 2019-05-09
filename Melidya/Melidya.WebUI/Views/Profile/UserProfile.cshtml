@@ -7,25 +7,13 @@
 
 <h2>UserProfile</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">@Model.CustomerID</th>
-            <td>@Model.ContactName</td>
-            <td>@Model.ContactTitle</td>
-            <td>@Model.CompanyName</td>
-            <td>@Model.Phone</td>
-            <td>@Model.Country</td>
-            <td>@Model.City</td>
-            <td>@Model.Address</td>
-        </tr>
-    </tbody>
-</table>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">Name: @Model.ContactName</li>
+    <li class="list-group-item">Title: @Model.ContactTitle</li>
+    <li class="list-group-item">Company Name: @Model.CompanyName</li>
+    <li class="list-group-item">Phone: @Model.Phone</li>
+    <li class="list-group-item">Adress: @Model.Address</li>
+    <li class="list-group-item">City: @Model.City</li>
+    <li class="list-group-item">Country @Model.Country</li>
+</ul>
+<a href="/Profile/UpdateProfile" class="btn btn-success">Güncelle</a>
