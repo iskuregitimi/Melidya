@@ -18,7 +18,7 @@ namespace Melidya.WebUI.Admin.Controllers
         }
         public ActionResult login(LoginModel model)
         {
-            Employee employee = EmployeeBLL.getEmployee(model.username, model.password);
+            Employee employee = EmployeeBLL.GetEmployee(model.username, model.password);
             if (employee != null)
             {
                 Session["Login"] = employee;
@@ -29,8 +29,8 @@ namespace Melidya.WebUI.Admin.Controllers
 
         public ActionResult profile(LoginModel model)
         {
-            Customer customer = Session["Login"] as Customer;
-            return View(customer);
+            Employee employee = Session["Login"] as Employee;
+            return View(employee);
         }
 
         public ActionResult update(Customer cust)

@@ -18,6 +18,9 @@ namespace Melidya.DAL
 
         public int EmployeeID { get; set; }
 
+        [StringLength(20)]
+        public string Password { get; set; }
+
         [Required]
         [StringLength(20)]
         public string LastName { get; set; }
@@ -78,5 +81,10 @@ namespace Melidya.DAL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Territory> Territories { get; set; }
+
+        public override string ToString()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 }

@@ -1,0 +1,35 @@
+﻿@using Melidya.DAL
+@model List<Category>
+
+@{
+    ViewBag.Title = "getCategories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Category.css" rel="stylesheet" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<br />
+<br />
+@Html.ActionLink("New Category", "addCategory")
+<br />
+<br />
+<div class="container anidi_services ">
+    <div class="row">
+        <ul class="links">
+            @foreach (Category item in Model)
+            {
+                <li>
+                    <a href="#">
+                        <span class="icon">@item.CategoryID</span>
+                        <span style="margin-left:50px" class="text">@item.CategoryName</span>
+                    </a>
+                    <div class="clearfix"></div>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>

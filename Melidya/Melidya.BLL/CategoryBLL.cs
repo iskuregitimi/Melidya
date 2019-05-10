@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace Melidya.BLL
 {
-    public static class EmployeeBLL
+    public static class CategoryBLL
     {
         static NorthwindModel context = new NorthwindModel();
-        public static Employee GetEmployee(object username, object password)
+        public static List<Category> GetCategories()
         {
-            return context.Employees.FirstOrDefault(x => x.FirstName == username.ToString() && x.Password == password.ToString());
+            return context.Categories.ToList();
         }
 
-        public static void updateEmployee(Employee emp)
+        public static void addCategory(Category category)
         {
+            context.Categories.Add(category);
             context.SaveChanges();
         }
-
     }
 }
