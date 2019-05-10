@@ -37,7 +37,6 @@ namespace Melidya.WebUI.Controllers
             {
                 return RedirectToAction("LoginHata");
             }
-
         }
 
         public ActionResult LoginHata()

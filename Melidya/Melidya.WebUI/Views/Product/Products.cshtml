@@ -1,0 +1,19 @@
+﻿@model List <Melidya.Entities.Product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+@foreach (var item in Model)
+{
+<div class="col-md-3 column productbox">
+    <img src="https://www.gs1india.org/media/Juice_pack.jpg" class="img-responsive">
+    <div class="producttitle">@item.ProductName</div>
+    <div class="productprice"><div class="pull-right"><a href="/Product/Products" class="btn btn-danger btn-sm" role="button">BUY</a></div>
+    <div class="pricetext">@item.UnitPrice</div></div>
+    <br />
+</div>
+   
+}
