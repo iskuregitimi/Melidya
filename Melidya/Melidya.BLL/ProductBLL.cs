@@ -17,6 +17,13 @@ namespace Melidya.BLL
             return repo.List();
         }
 
+        public Product GetProduct(int id)
+        {
+            return repo.Find(x=> x.ProductID==id);
+        }
+
+
+       
 
     }
 }
