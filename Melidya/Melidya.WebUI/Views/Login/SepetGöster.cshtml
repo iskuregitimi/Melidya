@@ -1,0 +1,89 @@
+﻿@using Melidya.WebUI.Models
+@model List<SepetModel>
+
+
+@{
+    ViewBag.Title = "SepetGöster";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="~/Content/Sepet.css" rel="stylesheet" />
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col"> </th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Available</th>
+                            <th scope="col" class="text-center">Quantity</th>
+                            <th scope="col" class="text-right">Price</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+
+
+                        @foreach (SepetModel item in Model)
+                        {
+                            <tr>
+                                <td><img src="~/Content/images/indir.jpg" width="50" height="50" /> </td>
+                                <td>@item.ProductName</td>
+                                <td>In stock</td>
+                                <td>@item.Quantity</td>
+                                <td class="text-right">@item.UnitPrice</td>
+                                <td class="text-right"><a class="btn btn-sm btn-danger" href="/Login/Sil/@item.ProductID">SİL<i class="fa fa-trash"></i> </a> </td>
+                            </tr>
+                        }
+                            <tr>
+                                
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Tutar</td>
+
+
+
+                                <td class="text-right">@Session["SepetTutar"]</td>
+
+                                
+                            </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Shipping</td>
+                            <td class="text-right">6,90 €</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>Total</strong></td>
+                            <td class="text-right"><strong>@Session["ToplamTutar"]</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col mb-2">
+            <div class="row">
+                <div class="col-sm-12  col-md-6">
+                    <a class="btn btn-lg btn-primary" href="/Login/ProductList">Continue Shopping</a>
+                </div>
+                <div class="col-sm-12 col-md-6 text-right">
+                    <a class="btn btn-lg btn-block btn-success text-uppercase" href="#">Checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

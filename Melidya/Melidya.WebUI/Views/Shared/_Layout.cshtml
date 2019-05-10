@@ -44,20 +44,22 @@
                     @if (Session["Login"] != null)
                     {
                         <li><a href="/Login/profile/@customer.CustomerID">Profile </a></li>
-
                         <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
                         <li>@Html.ActionLink("ProductList", "ProductList", "Login")</li>
-
                     }
-                 
+
 
 
                 </ul>
                 @if (Session["Login"] != null)
                 {
-
-             
-                    <b style="color:white">@customer.ContactName</b>
+                    <b class="nav navbar-brand "style="color:white ; float:right ; font-size:small ; font-family:Italic">@customer.ContactName</b>
+                }
+                @if (Session["Sepet"] != null)
+                {
+                    <ul class="nav navbar-nav" style="float:right">
+                        <li>@Html.ActionLink("SepetGöster", "SepetGöster", "Login")</li>
+                    </ul>
                 }
 
             </div>

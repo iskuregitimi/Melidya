@@ -17,5 +17,10 @@ namespace Melidy.BLL
             return db.Products.ToList();
         }
 
-    }
+        public Products ProductsEkle(int ProductID)
+        {
+            return db.Products.FirstOrDefault(x => x.ProductID == ProductID);
+        }
+      
+}
 }

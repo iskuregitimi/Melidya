@@ -24,6 +24,10 @@ namespace Melidya.Entity
         public string LastName { get; set; }
 
         [Required]
+        [StringLength(50)]
+        public string Password { get; set; }
+
+        [Required]
         [StringLength(10)]
         public string FirstName { get; set; }
 
