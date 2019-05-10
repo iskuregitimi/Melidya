@@ -23,7 +23,20 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (Session["Login"]==null)
+                    {
+                        <li>@Html.ActionLink("Login", "LoginIndex", "Login")</li>
+                    }                   
                 </ul>
+                @if (Session["Login"] != null)
+                {
+                    
+                    <ul class="nav navbar-nav">
+                        <li><b style="color:antiquewhite" > @Session["Login"].ToString()</b></li>
+                        <li>@Html.ActionLink("Order","OrderIndex","Login")</li>
+                        <li>@Html.ActionLink("Profil", "OrderIndex", "Login")</li>
+                    </ul>
+                }
             </div>
         </div>
     </div>
@@ -37,6 +50,6 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)ss
 </body>
 </html>

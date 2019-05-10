@@ -3,12 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.WebUI", "Melidya.WebUI\Melidya.WebUI.csproj", "{4FB464DA-EEC4-4DDE-8439-3345AB95A529}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E5FB98E-5FD6-4E9A-A4E8-3D54A41BAD22}"
 	ProjectSection(SolutionItems) = preProject
 		Readme.txt = Readme.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.BLL", "Melidya.BLL\Melidya.BLL.csproj", "{1F97CB91-6069-49CE-92DB-69A2D3294CBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.DAL", "Melidya.DAL\Melidya.DAL.csproj", "{B4168277-D3DA-4B28-BC75-EBEBD269945A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.Entity", "Melidya.Entity\Melidya.Entity.csproj", "{6BB5E236-D9B6-421A-9C9A-7142D2809B6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.WebUI", "Melidya.WebUI\Melidya.WebUI.csproj", "{B33EFC10-D645-4665-BED4-B55658182A73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,10 +22,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4FB464DA-EEC4-4DDE-8439-3345AB95A529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FB464DA-EEC4-4DDE-8439-3345AB95A529}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FB464DA-EEC4-4DDE-8439-3345AB95A529}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FB464DA-EEC4-4DDE-8439-3345AB95A529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F97CB91-6069-49CE-92DB-69A2D3294CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F97CB91-6069-49CE-92DB-69A2D3294CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F97CB91-6069-49CE-92DB-69A2D3294CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F97CB91-6069-49CE-92DB-69A2D3294CBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4168277-D3DA-4B28-BC75-EBEBD269945A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4168277-D3DA-4B28-BC75-EBEBD269945A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4168277-D3DA-4B28-BC75-EBEBD269945A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4168277-D3DA-4B28-BC75-EBEBD269945A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB5E236-D9B6-421A-9C9A-7142D2809B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB5E236-D9B6-421A-9C9A-7142D2809B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB5E236-D9B6-421A-9C9A-7142D2809B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB5E236-D9B6-421A-9C9A-7142D2809B6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B33EFC10-D645-4665-BED4-B55658182A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33EFC10-D645-4665-BED4-B55658182A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33EFC10-D645-4665-BED4-B55658182A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33EFC10-D645-4665-BED4-B55658182A73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
