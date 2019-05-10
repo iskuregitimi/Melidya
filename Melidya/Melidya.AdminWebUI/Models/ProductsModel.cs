@@ -9,7 +9,8 @@ namespace Melidya.AdminWebUI.Models
     {
         
         public string ProductName{ get; set; }
-        public int CateegoriesID { get; set; }
-        public decimal UnittPrice{ get; set; }
+        public int Categories { get; set; }
+        public decimal UnitPrice{ get; set; }
+        public string QuantityPerUnit { get; set; }
     }
 }

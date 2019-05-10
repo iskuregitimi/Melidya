@@ -13,7 +13,7 @@ namespace Melidya.BLL
         static DataContext dataContext = new DataContext();
         public static Employees GetEmployees(string firstName)
         {
-            return dataContext.Employees.Where(x => x.FirstName == firstName).FirstOrDefault();
+            return dataContext.Employees.FirstOrDefault(x => x.LastName == firstName);
 
 
         }

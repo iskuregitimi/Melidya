@@ -29,8 +29,8 @@ namespace Melidya.WebUI.Controllers
             {
 
                 sepetTutar += (item.Quantity * item.UnitPrice);
-                
-              
+
+
             }
             toplamTutar = sepetTutar + (decimal)6.90;
             Session["SepetTutar"] = sepetTutar;
@@ -92,6 +92,35 @@ namespace Melidya.WebUI.Controllers
             }
 
             return RedirectToAction("sepetgoster");
+        }
+        [HttpPost]
+        public ActionResult SepetKaydet()
+        {
+            Customers login = Session["Login"] as Customers;
+            List<SepetModel> od = Session["Sepet"] as List<SepetModel>;
+            Orders order = new Orders();
+            order.CustomerID = login.CustomerID;
+            order.OrderDate = DateTime.Now;
+            order.RequiredDate = DateTime.Now;
+            OrderBLL.insertOrder(order);
+            foreach (SepetModel item in od)
+            {
+                Order_Details detail = new Order_Details();
+                detail.OrderID = 15;
+                detail.ProductID = item.ProductID;
+                detail.UnitPrice = (decimal)item.UnitPrice;
+                detail.Quantity = item.Quantity;
+                detail.Discount = 0;
+                OrderBLL.insertOrderdetail(detail);
+            }
+
+
+           
+
+
+
+
+            return RedirectToAction("GetProduct", "Product");
         }
     }
 }

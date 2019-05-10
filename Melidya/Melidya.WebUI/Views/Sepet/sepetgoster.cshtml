@@ -7,6 +7,8 @@
 }
 
 <h2>sepetgoster</h2>
+@using (Html.BeginForm("SepetKaydet", "Sepet", FormMethod.Post))
+{
 <table class="table">
     <thead>
         <tr>
@@ -22,15 +24,18 @@
         {
             <tr>
                 <th scope="row">
-<img src="~/Image/cc291_Sutlu_Cikolata_Kapli_Lokum_500g.png" height="50" width="50" /></th>
+                    <img src="~/Image/cc291_Sutlu_Cikolata_Kapli_Lokum_500g.png" height="50" width="50" />
+                </th>
                 <td>@item.ProductName</td>
                 <td>@item.UnitPrice</td>
                 <td>@item.Quantity</td>
                 <td>
                     @Html.ActionLink("SepettenKaldır", "Sil", new { id = item.ProductID })
                 </td>
+
             </tr>
         }
+
         <tr>
             <th></th>
             <td></td>
@@ -38,16 +43,16 @@
             <td>Sepet Tutarı :</td>
             <td>@Session["SepetTutar"] TL</td>
         </tr>
-        @if (Session["Sepet"]!=null)
+        @if (Session["Sepet"] != null)
         {
 
-        <tr>
-            <th></th>
-            <td></td>
-            <td></td>
-            <td>Kargo :</td>
-            <td>6.90 TL</td>
-        </tr>
+            <tr>
+                <th></th>
+                <td></td>
+                <td></td>
+                <td>Kargo :</td>
+                <td>6.90 TL</td>
+            </tr>
         }
         <tr>
             <th></th>
@@ -56,5 +61,11 @@
             <td>Toplam Tutar :</td>
             <td>@Session["ToplamTutar"] TL</td>
         </tr>
+        
+   
+        @*<a href="/Sepet/sepetekle" class="btn btn-primary">Sepete Ekle</a>*@
+    
     </tbody>
 </table>
+<input type="button" value="kaydet" class="btn-danger" />
+}

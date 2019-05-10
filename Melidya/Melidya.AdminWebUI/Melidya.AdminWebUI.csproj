@@ -278,7 +278,7 @@
     <Content Include="Views\Categories\categories.cshtml" />
     <Content Include="Views\Categories\addcategories.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
-    <Content Include="Views\Product\adProduct.cshtml" />
+    <Content Include="Views\Product\addProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

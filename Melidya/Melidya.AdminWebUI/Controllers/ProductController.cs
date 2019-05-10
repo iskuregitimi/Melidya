@@ -23,8 +23,9 @@ namespace Melidya.AdminWebUI.Controllers
             return View(products);
         }
 
-        public ActionResult adProduct()
+        public ActionResult addProduct()
         {
+            ViewBag.categories = new SelectList(CategoryBLL.getCategories(), "CategoryID", "CategoryName");
             return View();
 
         }
@@ -34,8 +35,9 @@ namespace Melidya.AdminWebUI.Controllers
         {
             Products products = new Products();
             products.ProductName = model.ProductName;
-            products.UnitPrice = model.UnittPrice;
-            products.CategoryID = model.CateegoriesID;
+            products.UnitPrice = model.UnitPrice;
+            products.CategoryID = model.Categories;
+            products.QuantityPerUnit = model.QuantityPerUnit;
             productBLL.addProducts(products);
             return RedirectToAction("ProductList");
             

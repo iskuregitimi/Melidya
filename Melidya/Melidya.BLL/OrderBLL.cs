@@ -20,5 +20,20 @@ namespace Melidya.BLL
             return datacontext.Order_Details.Where(x => x.OrderID == id).ToList();
 
         }
+        public  static void insertOrder(Orders order)
+        {
+            datacontext.Orders.Add(order);
+            datacontext.SaveChanges();
+        }
+        public static void insertOrderdetail(Order_Details detail)
+        {
+            datacontext.Order_Details.Add(detail);
+            datacontext.SaveChanges();
+        }
+        public static List<Orders> getdetail()
+        {
+           var detay=from o in Orders join od in Order_Details
+        }
+
     }
 }

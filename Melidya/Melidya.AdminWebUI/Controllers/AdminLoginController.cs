@@ -19,14 +19,14 @@ namespace Melidya.AdminWebUI.Controllers
 
         public ActionResult AdminLogin(AdminLoginModel model)
         {
-            Employees employees = new Employees();
-            employees = EmployeeBLL.GetEmployees(model.FirstName);
-            if (employees.Password== model.Password)
+
+            Employees employees = EmployeeBLL.GetEmployees(model.FirstName);
+            if (employees.Password.Trim()== model.Password.Trim())
             {
                 Session["AdminLogin"] = employees;
                 return RedirectToAction("categories", "Categories");
             }
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("ProductList", "Product");
         }
     }
 
