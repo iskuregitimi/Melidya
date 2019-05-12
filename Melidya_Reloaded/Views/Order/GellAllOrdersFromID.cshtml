@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Melidya_Reloaded.DAL.Order>
+@{
+    ViewBag.Title = "Siparişler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="zero_config" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sipariş ID</th>
+                            <th>Sipariş Tarihi</th>
+                            <th>Gönderilme Tarihi </th>
+                            <th>Aracı Firma</th>
+                            <th>Ağırlık</th>
+                            <th>Alıcı Adı</th>
+                            <th>Alıcı Adresi</th>
+                            <th>Alıcı İli</th>
+                            <th>Alıcı Şehri</th>
+                            <th>Posta Kodu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>@item.OrderID</td>
+                            <td>@item.OrderDate</td>
+                            <td>@item.ShippedDate</td>
+                            <td>@item.ShipVia</td>
+                            <td>@item.Freight</td>
+                            <td>@item.ShipName</td>
+                            <td>@item.ShipAddress</td>
+                            <td>@item.ShipCity</td>
+                            <td>@item.ShipCountry</td>
+                            <td>@item.ShipPostalCode</td>
+                            <td>@Html.ActionLink("Sipariş Detayı ","GetOrderDetails","Order",new { item.OrderID },new { @class = "btn btn-info" })</td>
+
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+

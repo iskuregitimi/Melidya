@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Melidya_Reloaded.DAL.OrderDetail>
+
+@{
+    ViewBag.Title = "GetOrderDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Ürün Adı</th>
+                        <th>Ürün ID</th>
+                        <th>Adet Fiyatı</th>
+                        <th>Adet</th>
+                        <th>İndirim</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>@item.ProductID</td>
+                        <td>@item.UnitPrice</td>
+                        <td>@item.Quantity</td>    
+                        <td>%@item.Discount</td> 
+                    </tr>
+                    }
+                </tbody>
+            </table>
+</div>
+</div>
+</div>
