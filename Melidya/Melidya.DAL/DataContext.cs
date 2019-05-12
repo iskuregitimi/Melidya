@@ -1,4 +1,4 @@
-namespace Melidya.DAL
+﻿namespace Melidya.DAL
 {
     using System;
     using System.Data.Entity;
@@ -8,7 +8,7 @@ namespace Melidya.DAL
     public partial class DataContext : DbContext
     {
         public DataContext()
-            : base("name=DataContext")
+            : base("name=DataContext2")
         {
         }
 
@@ -22,7 +22,9 @@ namespace Melidya.DAL
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
+        public virtual DbSet<Roller> Roller { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -45,6 +47,12 @@ namespace Melidya.DAL
                 .HasForeignKey(e => e.ReportsTo);
 
             modelBuilder.Entity<Employees>()
+                .HasMany(e => e.Roller)
+                .WithRequired(e => e.Employees)
+                .HasForeignKey(e => e.RolID)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Employees>()
                 .HasMany(e => e.Territories)
                 .WithMany(e => e.Employees)
                 .Map(m => m.ToTable("EmployeeTerritories").MapLeftKey("EmployeeID").MapRightKey("TerritoryID"));
@@ -55,6 +63,10 @@ namespace Melidya.DAL
 
             modelBuilder.Entity<Orders>()
                 .Property(e => e.CustomerID)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Orders>()
+                .Property(e => e.Status)
                 .IsFixedLength();
 
             modelBuilder.Entity<Orders>()
@@ -91,6 +103,10 @@ namespace Melidya.DAL
 
             modelBuilder.Entity<Territories>()
                 .Property(e => e.TerritoryDescription)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Roller>()
+                .Property(e => e.Rolü)
                 .IsFixedLength();
         }
     }

@@ -48,7 +48,8 @@ namespace Melidya.WebUI.Controllers
                 ProductID = pro.ProductID,
                 ProductName = pro.ProductName,
                 Quantity = 1,
-                UnitPrice = pro.UnitPrice
+                UnitPrice = pro.UnitPrice,
+                
             };
 
             if (Session["Sepet"] == null)
@@ -93,7 +94,7 @@ namespace Melidya.WebUI.Controllers
 
             return RedirectToAction("sepetgoster");
         }
-        [HttpPost]
+
         public ActionResult SepetKaydet()
         {
             Customers login = Session["Login"] as Customers;
@@ -102,11 +103,12 @@ namespace Melidya.WebUI.Controllers
             order.CustomerID = login.CustomerID;
             order.OrderDate = DateTime.Now;
             order.RequiredDate = DateTime.Now;
+            order.Status = "Yeni";
             OrderBLL.insertOrder(order);
             foreach (SepetModel item in od)
             {
                 Order_Details detail = new Order_Details();
-                detail.OrderID = 15;
+                detail.OrderID = OrderBLL.orderID;
                 detail.ProductID = item.ProductID;
                 detail.UnitPrice = (decimal)item.UnitPrice;
                 detail.Quantity = item.Quantity;

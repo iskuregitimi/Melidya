@@ -21,13 +21,26 @@ namespace Melidya.AdminWebUI.Controllers
         {
 
             Employees employees = EmployeeBLL.GetEmployees(model.FirstName);
-            if (employees.Password.Trim()== model.Password.Trim())
+            if ((employees.Password.Trim()== model.Password.Trim()) && (employees.Rolü==1))
             {
                 Session["AdminLogin"] = employees;
                 return RedirectToAction("categories", "Categories");
             }
-            return RedirectToAction("ProductList", "Product");
+           else if ((employees.Password.Trim() == model.Password.Trim()) && (employees.Rolü == 2))
+            {
+                Session["OnayciLogin"] = employees;
+                return RedirectToAction("Detay", "SiparisDetail");
+            }
+            else if ((employees.Password.Trim() == model.Password.Trim()) && (employees.Rolü == 3))
+            {
+                Session["KargoLogin"] = employees;
+                return RedirectToAction("Detay", "SiparisDetail");
+            }
+
+            return RedirectToAction("Index", "Home");
         }
+
+
     }
 
     

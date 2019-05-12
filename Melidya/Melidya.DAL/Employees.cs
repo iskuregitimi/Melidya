@@ -13,6 +13,7 @@ namespace Melidya.DAL
         {
             Employees1 = new HashSet<Employees>();
             Orders = new HashSet<Orders>();
+            Roller = new HashSet<Roller>();
             Territories = new HashSet<Territories>();
         }
 
@@ -21,6 +22,8 @@ namespace Melidya.DAL
 
         [StringLength(20)]
         public string Password { get; set; }
+
+        public int? Rolü { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -79,6 +82,9 @@ namespace Melidya.DAL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Roller> Roller { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Territories> Territories { get; set; }

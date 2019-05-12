@@ -7,8 +7,8 @@
 }
 
 <h2>sepetgoster</h2>
-@using (Html.BeginForm("SepetKaydet", "Sepet", FormMethod.Post))
-{
+
+
 <table class="table">
     <thead>
         <tr>
@@ -34,8 +34,9 @@
                 </td>
 
             </tr>
-        }
 
+        }
+        @Html.ActionLink("Kaydet", "SepetKaydet","Sepet")
         <tr>
             <th></th>
             <td></td>
@@ -61,11 +62,10 @@
             <td>Toplam Tutar :</td>
             <td>@Session["ToplamTutar"] TL</td>
         </tr>
-        
-   
+
+
         @*<a href="/Sepet/sepetekle" class="btn btn-primary">Sepete Ekle</a>*@
-    
+
     </tbody>
 </table>
-<input type="button" value="kaydet" class="btn-danger" />
-}
+

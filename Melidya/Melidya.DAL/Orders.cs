@@ -20,6 +20,9 @@ namespace Melidya.DAL
         [StringLength(5)]
         public string CustomerID { get; set; }
 
+        [StringLength(20)]
+        public string Status { get; set; }
+
         public int? EmployeeID { get; set; }
 
         public DateTime? OrderDate { get; set; }

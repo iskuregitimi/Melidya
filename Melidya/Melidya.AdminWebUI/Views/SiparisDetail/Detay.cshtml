@@ -1,0 +1,85 @@
+﻿@using Melidya.DAL
+@model IEnumerable<Melidya.DAL.SiparisDetailModel>
+
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detay</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipAddress)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.TotalAmount)
+        </th>
+        <th>
+            @Html.DisplayFor(modelItem => item.Status)
+        </th>
+        <th>
+            @if (Session["OnayciLogin"] != null)
+            {
+                <a href="/SiparisDetail/Onayla/@item.OrderID" class="btn btn-danger">Onayla</a>
+
+            }
+            @if (Session["AdminLogin"] != null)
+            {
+
+                <a href="/SiparisDetail/Onayla/@item.OrderID" class="btn btn-danger">Onayla</a>
+                <a href="/SiparisDetail/kargola/@item.OrderID" class="btn btn-primary">Kargola</a>
+
+            } @if (Session["KargoLogin"] != null)
+            {
+
+                <a href="/SiparisDetail/kargola/@item.OrderID" class="btn btn-primary">Kargola</a>
+            }
+        </th>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+    </tr>
+    }
+
+</table>

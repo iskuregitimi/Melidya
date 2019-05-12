@@ -16,34 +16,58 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Admin Paneli", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     @if (Session["AdminLogin"] == null)
                     {
                         <li>@Html.ActionLink("Login", "Index", "AdminLogin")</li>
 
                     }
+                    @*@(Session["OnayciLogin"] == null)
+                        {
+                            <li>@Html.ActionLink("Login", "Index", "AdminLogin")</li>
+
+                        }*@
 
                 </ul>
 
-                    @if (Session["AdminLogin"] != null)
-                    {
-                        <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Insert Categories", "addcategories", "Categories")</li>
-                            <li>@Html.ActionLink("Ürünler Listesi", "ProductList", "Product")</li>
-                        </ul>
-                    }
+                @if (Session["AdminLogin"] != null)
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Insert Categories", "addcategories", "Categories")</li>
+                        <li>@Html.ActionLink("Ürünler Listesi", "ProductList", "Product")</li>
+                        <li>@Html.ActionLink("Siparis Listesi", "Detay", "SiparisDetail")</li>
+                    </ul>
+                }
+                @if (Session["OnayciLogin"] != null)
+                {
+                    <ul class="nav navbar-nav">
 
-              
+
+                        <li>@Html.ActionLink("Siparis Listesi", "Detay", "SiparisDetail")</li>
+                    </ul>
+
+                }
+                @if (Session["KargoLogin"] != null)
+                {
+                    <ul class="nav navbar-nav">
+
+
+                        <li>@Html.ActionLink("Siparis Listesi", "Detay", "SiparisDetail")</li>
+                    </ul>
+
+                }
 
 
 
-             
+
+
+
             </div>
         </div>
     </div>
