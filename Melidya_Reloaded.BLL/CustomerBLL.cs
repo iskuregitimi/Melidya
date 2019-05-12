@@ -14,7 +14,7 @@ namespace Melidya_Reloaded.BLL
         public static Customer checkcustomer(string Customerid, string Pass)
         {  
             
-            var findcustomer = db.Customers.Where(c => c.CustomerID == Customerid | c.Password == Pass);
+            var findcustomer = db.Customers.Where(c => c.CustomerID == Customerid && c.Password == Pass);
             return findcustomer.FirstOrDefault();
         }
 

@@ -26,7 +26,7 @@ namespace Melidya_Reloaded.Controllers
 
             }
 
-            return RedirectToAction("Login");
+            return View("Index");
         }
 
         public ActionResult Cikis()
