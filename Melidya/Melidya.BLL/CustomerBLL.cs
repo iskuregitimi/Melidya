@@ -15,5 +15,10 @@ namespace Melidya.BLL
         {
             return dataContext.Customers.ToList();
         }
+
+        public Customers GetCustomer(string username, string password)
+        {
+            return dataContext.Customers.FirstOrDefault(x => x.CustomerID == username && x.Password == password);
+        }
     }
 }

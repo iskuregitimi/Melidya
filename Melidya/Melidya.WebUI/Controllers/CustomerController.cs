@@ -1,5 +1,6 @@
 ﻿using Melidya.BLL;
 using Melidya.Entity;
+using Melidya.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,5 +24,6 @@ namespace Melidya.WebUI.Controllers
 
             return View(customer);
         }
+
     }
 }
