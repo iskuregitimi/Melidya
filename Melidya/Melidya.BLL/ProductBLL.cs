@@ -19,5 +19,11 @@ namespace Melidya.BLL
         {
             return context.Products.Where(c => c.ProductID == id).FirstOrDefault();
         }
+
+        public static void addProduct(Product prod)
+        {
+            context.Products.Add(prod);
+            context.SaveChanges();
+        }
     }
 }

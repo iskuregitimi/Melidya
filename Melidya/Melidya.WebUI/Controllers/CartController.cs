@@ -91,5 +91,21 @@ namespace Melidya.WebUI.Controllers
 
             return RedirectToAction("showCart");
         }
+
+        public ActionResult addOrder()
+        {
+            Customer customer = Session["Login"] as Customer;
+            int orderID = OrderBLL.addOrder(customer);
+
+
+            List<SepetModel> products = Session["Cart"] as List<SepetModel>;
+            foreach(var prod in products)
+            {
+                OrderBLL.addOrderDetail(orderID, prod.ProductID, prod.UnitPrice, prod.Quantity);
+            }
+
+            Session["Cart"] = null;
+            return RedirectToAction("getProducts", "Product");
+        }
     }
 }

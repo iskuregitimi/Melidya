@@ -32,5 +32,11 @@ namespace Melidya.WebUI.Admin.Controllers
             CategoryBLL.addCategory(category);
             return RedirectToAction("getCategories");
         }
+
+        public ActionResult addProduct(int id)
+        {
+            Session["Category"] = id;
+            return View();
+        }
     }
 }
