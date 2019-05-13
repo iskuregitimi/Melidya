@@ -27,6 +27,11 @@ namespace Melidya.BLL
             dataContext.SaveChanges();
 
         }
+        public static void deleteProduct(Products products)
+        {
+            dataContext.Products.Remove(products);
+            dataContext.SaveChanges();
+        }
 
 
     }

@@ -20,19 +20,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                   
                     @if (Session["AdminLogin"] == null)
                     {
                         <li>@Html.ActionLink("Login", "Index", "AdminLogin")</li>
 
                     }
-                    @*@(Session["OnayciLogin"] == null)
-                        {
-                            <li>@Html.ActionLink("Login", "Index", "AdminLogin")</li>
-
-                        }*@
+                 
 
                 </ul>
 
@@ -42,6 +36,11 @@
                         <li>@Html.ActionLink("Insert Categories", "addcategories", "Categories")</li>
                         <li>@Html.ActionLink("Ürünler Listesi", "ProductList", "Product")</li>
                         <li>@Html.ActionLink("Siparis Listesi", "Detay", "SiparisDetail")</li>
+                    
+                    </ul>
+                    <ul class="nav navbar-nav" style="float:right">
+
+                        <li>@Html.ActionLink("Logout", "Logout", "AdminLogin")</li>
                     </ul>
                 }
                 @if (Session["OnayciLogin"] != null)
@@ -50,6 +49,11 @@
 
 
                         <li>@Html.ActionLink("Siparis Listesi", "Detay", "SiparisDetail")</li>
+                       
+                    </ul>
+                    <ul class="nav navbar-nav" style="float:right">
+
+                        <li>@Html.ActionLink("Logout", "Logout", "AdminLogin")</li>
                     </ul>
 
                 }
@@ -59,6 +63,12 @@
 
 
                         <li>@Html.ActionLink("Siparis Listesi", "Detay", "SiparisDetail")</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "AdminLogin")</li>
+                       
+                    </ul>
+                    <ul class="nav navbar-nav" style="float:right">
+                       
+                        <li>@Html.ActionLink("Logout", "Logout", "AdminLogin")</li>
                     </ul>
 
                 }

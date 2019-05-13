@@ -30,7 +30,8 @@
                 <td>@item.UnitPrice</td>
                 <td>@item.Quantity</td>
                 <td>
-                    @Html.ActionLink("SepettenKaldır", "Sil", new { id = item.ProductID })
+                    <a href="/Sepet/Sil/@item.ProductID" class="btn btn-danger">SEPETTEN KALDIR</a>
+                   
                 </td>
 
             </tr>

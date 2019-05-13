@@ -11,6 +11,7 @@ namespace Melidya.BLL
 
     {
         static DataContext datacontext = new DataContext();
+
         public static int orderID = datacontext.Orders.Max(x => x.OrderID);
 
         public static Orders getOrders(int orderID)
@@ -19,7 +20,7 @@ namespace Melidya.BLL
         }
         public static List<Orders> getorder(string customerID)
         {
-            return datacontext.Orders.Where(x => x.CustomerID == customerID).ToList();
+            return datacontext.Orders.Where(x => x.CustomerID == customerID).OrderBy(x => x.OrderID).ToList();
         }
         public static List<Order_Details> orderdetail(int id)
         {
@@ -46,21 +47,21 @@ namespace Melidya.BLL
         public static IQueryable <SiparisDetailModel> getdetail()
         {
 
-            //var detail =  from o in datacontext.Orders
-            //              join c in datacontext.Customers on o.CustomerID equals c.CustomerID
-            //              join od in datacontext.Order_Details 
-            //              on o.OrderID equals od.OrderID
-            //              select new SiparisDetailModel
-            //              {
+            //var detail = from o in datacontext.Orders
+            //             join c in datacontext.Customers on o.CustomerID equals c.CustomerID
+            //             join od in datacontext.Order_Details
+            //             on o.OrderID equals od.OrderID
+            //             select new SiparisDetailModel
+            //             {
 
-            //                   OrderID= od.OrderID,
-            //                  ContactName= c.ContactName,
-            //                  OrderDate= o.OrderDate,
-            //                  ShipAddress= o.ShipAddress,
+            //                 OrderID = od.OrderID,
+            //                 ContactName = c.ContactName,
+            //                 OrderDate = o.OrderDate,
+            //                 ShipAddress = o.ShipAddress,
 
 
-            //                  TotalAmount +=(od.UnitPrice*od.Quantity)
-            //              };
+            //                 TotalAmount += (od.UnitPrice * od.Quantity)
+            //             };
 
             var detail = from cust in datacontext.Customers
                          join order in datacontext.Orders on cust.CustomerID equals order.CustomerID
@@ -68,12 +69,12 @@ namespace Melidya.BLL
                          group od by new { cust.ContactName, order.OrderID, order.OrderDate, order.ShipAddress, order.Status } into g
                          select new SiparisDetailModel
                          {
-                             ContactName=g.Key.ContactName,
-                             OrderID=g.Key.OrderID,
-                             OrderDate=g.Key.OrderDate,
-                             ShipAddress=g.Key.ShipAddress,
-                             TotalAmount=g.Sum(x=>x.UnitPrice * x.Quantity),
-                             Status=g.Key.Status
+                             ContactName = g.Key.ContactName,
+                             OrderID = g.Key.OrderID,
+                             OrderDate = g.Key.OrderDate,
+                             ShipAddress = g.Key.ShipAddress,
+                             TotalAmount = g.Sum(x => x.UnitPrice * x.Quantity),
+                             Status = g.Key.Status
                          };
 
             return detail;

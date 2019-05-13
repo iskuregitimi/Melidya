@@ -10,7 +10,7 @@ namespace Melidya.AdminWebUI.Controllers
 {
     public class SiparisDetailController : Controller
     {
-        // GET: SiparisDetail
+        
         public ActionResult Index()
         {
             return View();
@@ -22,12 +22,22 @@ namespace Melidya.AdminWebUI.Controllers
 
             return View(detaiil);
         }
-       
+
         public ActionResult Onayla(int id)
         {
             Orders orders = OrderBLL.getOrders(id);
-            orders.Status = "Onaylandı";
-            OrderBLL.updateOrder(orders);
+            if (orders.Status.Trim() == "Yeni".Trim())
+            {
+                orders.Status = "Onaylandı";
+                OrderBLL.updateOrder(orders);
+            }
+            else
+            {
+                return JavaScript(("Sipariş İçin Lütfen Satıcıyla İletişime Geçin"));
+             
+
+            }
+
 
 
             return RedirectToAction("Detay");
@@ -38,20 +48,22 @@ namespace Melidya.AdminWebUI.Controllers
         {
             Orders orders = OrderBLL.getOrders(id);
 
-            if (orders.Status.Trim()== "Onaylandı".Trim())
+            if (orders.Status.Trim() == "Onaylandı".Trim())
             {
                 orders.Status = "Kargolandı";
                 OrderBLL.updateOrder(orders);
 
             }
-            //else
-            //{
-            //    throw new DivideByZeroException("Kargolanamadı");
+            else
+            {
+                return JavaScript(("Sipariş İçin Lütfen Satıcıyla İletişime Geçin"));
+               
+            }
+    
 
-            //}
             return RedirectToAction("Detay");
 
         }
-       
+
     }
 }

@@ -42,6 +42,13 @@ namespace Melidya.AdminWebUI.Controllers
             return RedirectToAction("ProductList");
             
         }
+        public ActionResult Delete(int id)
+        {
+            Products product = productBLL.ListeyeEkle(id);
+            productBLL.deleteProduct(product);
+
+            return RedirectToAction("ProductList");
+        }
         
     }
 }

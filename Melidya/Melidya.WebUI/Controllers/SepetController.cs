@@ -36,6 +36,12 @@ namespace Melidya.WebUI.Controllers
             Session["SepetTutar"] = sepetTutar;
             Session["ToplamTutar"] = toplamTutar;
             Session["Count"] = products.Count();
+            if (products.Count==0)
+            {
+                Session["Sepet"] = null;
+                return RedirectToAction("GetProduct", "Product");
+
+            }
             return View(products);
 
         }

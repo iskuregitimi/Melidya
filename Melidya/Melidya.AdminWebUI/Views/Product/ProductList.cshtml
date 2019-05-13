@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ProductList</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+
 <table class="table">
     <tr>
         <th>
@@ -42,9 +40,9 @@
             @Html.DisplayFor(modelItem => item.Discontinued)
         </td>
         <td>
-            @Html.ActionLink("Ürün EKle", "addProduct", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            <a href="/Product/addProduct/@item.ProductID" class="btn btn-primary">Ürün Ekle</a>
+            <a href="/Product/Delete/@item.ProductID" class="btn btn-danger">Ürün Sil</a>
+        
         </td>
     </tr>
 }

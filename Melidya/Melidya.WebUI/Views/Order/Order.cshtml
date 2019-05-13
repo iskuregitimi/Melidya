@@ -26,9 +26,11 @@
             <td>@item.OrderDate</td>
         </tr>
         <td>
+            <a href="/Order/Orderdetail/@item.OrderID" class="btn btn-primary">Detay</a>
+            @*<a href="/Order/Orderdetail/@item.OrderID" class="btn btn-primary">Detay</a>
             @Html.ActionLink("Orderdetail", "Orderdetail", new { id = item.OrderID }) |
             @Html.ActionLink("Detay", "Detay", new { id = item.CustomerID }) |
-            @Html.ActionLink("Sil", "Sil", new { id = item.CustomerID })
+            @Html.ActionLink("Sil", "Sil", new { id = item.CustomerID })*@
         </td>
 
     }

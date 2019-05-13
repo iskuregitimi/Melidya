@@ -39,7 +39,14 @@ namespace Melidya.AdminWebUI.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult Logout()
+        {
+            Session["AdminLogin"] = null;
+            Session["OnayciLogin"] = null;
+            Session["KargoLogin"] = null;
 
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 

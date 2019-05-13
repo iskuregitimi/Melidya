@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>addcategories</h2>
+
 
 
 @using (Html.BeginForm("addcategories", "Categories", FormMethod.Post))
@@ -13,8 +13,9 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>KayitModel</h4>
-        <hr />
+        <br />
+        <br />
+        <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -41,7 +42,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a href="/Categories/categories/" class="btn btn-primary">GERİ DÖN</a>
 </div>
 
 @section Scripts {
