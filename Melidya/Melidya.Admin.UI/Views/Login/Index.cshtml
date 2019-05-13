@@ -1,0 +1,37 @@
+﻿@model Melidya.Admin.UI.Models.LoginModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <br />
+        <br />
+        Login View
+        <br />
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            @Html.TextBoxFor(m => m.UserName)
+            <br />
+            <br />
+
+            @Html.TextBoxFor(m => m.Password)
+            <br />
+            <br />
+
+
+            <input class="btn btn-primary" type="submit" name="name" value="Giriş" />
+        }
+
+    </div>
+</body>
+</html>
