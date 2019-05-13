@@ -6,16 +6,10 @@
 }
 
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
-<div class="container mb-12">
+<br />
+<div class="container mb-4">
     <div class="row">
-        <div class="col-12">
+        
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -39,7 +33,7 @@
                                 <td>In stock</td>
                                 <td>@item.Quantity</td>
                                 <td class="text-right">@item.Price TL</td>
-                                <td class="text-right"><a href="/Product/DeleteSepet/@item.ProductID" class="btn btn-sm btn-danger"><i class=" fas fa-trash-alt"></i> </a> </td>
+                                <td class="text-right"><a href="/Product/DeleteSepet/@item.ProductID" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i> </a> </td>
                             </tr>
                         }
                         <tr>
@@ -68,16 +62,13 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-        <br/>
-        <br/>
+            </div>             
         <div class="col mb-2">
             <div class="row">
-                <div class="col-md-12  col-lg-6">
+                <div class="col-sm-12  col-md-6">
                     <a href="/Product/Products/" class="btn btn-block btn-primary">Alışverişe Devam Et</a>
                 </div>
-                <div class="col-md-12 col-lg-6 text-right">
+                <div class="col-sm-12 col-md-6 text-right">
                     <a href="/Order/AddOrder" class="btn  btn-block btn-success">Siparişi Tamamla</a>
                 </div>
             </div>

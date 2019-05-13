@@ -28,10 +28,11 @@ namespace Melidya.WebUI.Controllers
 
         public ActionResult Sepet()
         {
-
+		
+			List<SepetModel> models = Session["Sepet"] as List<SepetModel>;	
             decimal toplamfiyat = 0;
             decimal subtotal = 0;
-            List<SepetModel> models = Session["Sepet"] as List<SepetModel>;
+           
             foreach (SepetModel item in models)
             {
                 subtotal += Convert.ToDecimal(item.Quantity * item.Price);
@@ -40,10 +41,22 @@ namespace Melidya.WebUI.Controllers
             Session["Count"] = models.Count();
             Session["Subtotal"] = subtotal;
             Session["Toplam"] = toplamfiyat;
-            return View(models);
-        }
+    
+			return View(models);
+		}
 
-        public ActionResult AddSepet(int id)
+
+		public ActionResult Sepet1()
+		{
+
+			
+			return View();
+		}
+
+
+
+
+		public ActionResult AddSepet(int id)
         {
             Product product = productBLL.GetProduct(id);
             if (Session["Sepet"] == null)

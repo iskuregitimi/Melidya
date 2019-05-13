@@ -27,5 +27,11 @@ namespace Melidya.WebUI.Controllers
             return RedirectToAction("OrderIndex","Order");
         }
 
+		public ActionResult Logout()
+		{
+			Session.Abandon();
+			return  RedirectToAction("Login","Login");
+		}
+
     }
 }

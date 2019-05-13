@@ -1,10 +1,9 @@
 ﻿
 
-
- @model Melidya.WebUI.Models.LoginModel
+@model Melidya.WebUI.Models.LoginModel
 @{
-    ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Login";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Login</h2>
@@ -13,9 +12,12 @@
 
 @using (Html.BeginForm("LoginIndex", "Login", FormMethod.Post))
 {
-@Html.TextBoxFor(x => x.username, new { placeholder = " kullanıcı adı" });
-    <br />
-@Html.TextBoxFor(x => x.password, new { placeholder = " Şifre" });
 
-<input type="submit" value=" login" />
+	@Html.TextBoxFor(x => x.username, new { @class = "form-control", @placeholder = "kullanıcı adı" });
+	<br />
+	@Html.TextBoxFor(x => x.password, new { @class = "form-control", @placeholder = "Şifre", @type = "password" });
+	<br />
+
+	<input type="submit" value=" login" class="btn btn-danger " />
 }
+
