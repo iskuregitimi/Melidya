@@ -12,6 +12,7 @@ namespace Melidya.Entity
         public Employees()
         {
             Employees1 = new HashSet<Employees>();
+            EmpRole = new HashSet<EmpRole>();
             Orders = new HashSet<Orders>();
             Territories = new HashSet<Territories>();
         }
@@ -69,10 +70,16 @@ namespace Melidya.Entity
         [StringLength(255)]
         public string PhotoPath { get; set; }
 
+        [StringLength(20)]
+        public string Password { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employees> Employees1 { get; set; }
 
         public virtual Employees Employees2 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmpRole> EmpRole { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }

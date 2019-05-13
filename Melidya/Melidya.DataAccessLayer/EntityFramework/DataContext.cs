@@ -1,4 +1,4 @@
-namespace Melidya.DataAccessLayer.EntityFrameWork
+namespace Melidya.DataAccessLayer
 {
     using System;
     using System.Data.Entity;
@@ -17,10 +17,12 @@ namespace Melidya.DataAccessLayer.EntityFrameWork
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
+        public virtual DbSet<EmpRole> EmpRole { get; set; }
         public virtual DbSet<Order_Details> Order_Details { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Region> Region { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
@@ -84,6 +86,11 @@ namespace Melidya.DataAccessLayer.EntityFrameWork
                 .HasMany(e => e.Territories)
                 .WithRequired(e => e.Region)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Roles>()
+                .HasMany(e => e.EmpRole)
+                .WithOptional(e => e.Roles)
+                .HasForeignKey(e => e.RoleID);
 
             modelBuilder.Entity<Shippers>()
                 .HasMany(e => e.Orders)

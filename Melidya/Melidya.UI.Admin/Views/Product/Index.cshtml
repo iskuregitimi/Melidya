@@ -1,0 +1,46 @@
+﻿@using Melidya.Entity
+@model Products
+
+
+@using (Html.BeginForm("AddProduct","Product",FormMethod.Post))
+{
+    <div class="container">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Category Name</span>
+            </div>
+            @Html.DropDownListFor(x => x.CategoryID, new SelectList(ViewBag.Categories as List<SelectListItem>, "Value", "Text"), new { @class = "form-control" })
+
+        </div>
+        <br />
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Company Name</span>
+            </div>
+            @Html.DropDownListFor(x => x.SupplierID, new SelectList(ViewBag.Suppliers as List<SelectListItem>, "Value", "Text"), new { @class = "form-control" })
+        </div>
+        <br />
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">&nbsp;&nbsp;Product Name&nbsp;</span>
+            </div>
+            @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+        </div>
+        <br />
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unit Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+            @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+        </div>
+        <br />
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">&nbsp;&nbsp;&nbsp;Unit In Stock&nbsp;&nbsp;&nbsp;</span>
+            </div>
+            @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control" })
+        </div>
+        <br />
+        <input type="submit" value="Ekle" class="btn btn-success" />
+    </div>
+}

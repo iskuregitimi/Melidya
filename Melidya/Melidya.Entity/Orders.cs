@@ -51,6 +51,9 @@ namespace Melidya.Entity
         [StringLength(15)]
         public string ShipCountry { get; set; }
 
+        [StringLength(50)]
+        public string Status { get; set; }
+
         public virtual Customers Customers { get; set; }
 
         public virtual Employees Employees { get; set; }

@@ -1,0 +1,38 @@
+﻿@using Melidya.Entity
+@model List<Order_Details>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+@if (Session["Login"] != null)
+{
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ProductName</th>
+                    <th scope="col">UnitPrice</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Order_Details item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.ProductID</th>
+                        <td>@item.Products.ProductName</td>
+                        <td>@item.UnitPrice</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Hata!</h1>
+            <hr class="my-4">
+            <p>Giriş Yapmalısınız!!</p>
+            <a href="/Home/Login" class="btn btn-primary">Login</a>
+        </div>
+    </div>
+}

@@ -1,11 +1,11 @@
 ﻿@using Melidya.Entity
 @model Customers
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 @{
     ViewBag.Title = "Login";
 }
 
-@using (Html.BeginForm("Login","Home",FormMethod.Post))
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
 {
     <div class="container">
         <div class="input-group mb-3">
@@ -18,7 +18,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şifre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </div>
-            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Şifre" })
+            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Şifre", type = "password" })
         </div>
         <input type="submit" value="Giriş" class="btn btn-success" />
     </div>

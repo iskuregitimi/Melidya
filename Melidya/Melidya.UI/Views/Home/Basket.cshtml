@@ -1,0 +1,81 @@
+﻿@using Melidya.UI.Models
+@model List<SepetModel>
+
+
+@*<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+---- Include the above in your HEAD tag --------
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">*@
+<link href="~/Content/Sepet.css" rel="stylesheet" />
+
+@if (Session["Sepet"] != null)
+{
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"> </th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Available</th>
+                                <th scope="col" class="text-center">Quantity</th>
+                                <th scope="col" class="text-right">Price</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (SepetModel item in Model)
+                            {
+                                <tr>
+                                    <td><img src="~/Image/bigking.jpg" height="50" width="50" /> </td>
+                                    <td>@item.ProductName</td>
+                                    <td>In stock</td>
+                                    <td>@item.Quantity</td>
+                                    <td class="text-right">@item.UnitPrice</td>
+                                    <td class="text-right"><a class="btn btn-sm btn-danger" href="/Home/RemoveBasket/@item.ProductID"><i class="fa fa-trash"></i> </a> </td>
+                                </tr>
+                            }
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Sub-Total</td>
+                                <td class="text-right">@Session["Toplam"].ToString()</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Shipping</td>
+                                <td class="text-right">6,9000</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>Total</strong></td>
+                                <td class="text-right"><strong>@Session["SepetToplam"].ToString()</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col mb-2">
+                <div class="row">
+                    <div class="col-sm-12  col-md-6">
+                        <a class="btn btn-block btn-light" href="/Product/Products">Continue Shopping</a>
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <a class="btn btn-lg btn-block btn-success text-uppercase" href="/Order/AddOrder">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

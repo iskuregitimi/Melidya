@@ -1,0 +1,16 @@
+﻿@using Melidya.Entity
+@model Customers
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<div class="container">
+    <h2>@Model.ContactName</h2>
+    <br />
+    <h2>@Model.CompanyName</h2>
+    <br />
+    <h2>@Model.Country</h2>
+    <br />
+    <h2>@Model.City</h2>
+    <br />
+    <h2>@Model.Address</h2>
+    <br />
+    <a href="/Profile/EditProfile/@Model.CustomerID" class="btn btn-dark">Güncelle</a>
+</div>

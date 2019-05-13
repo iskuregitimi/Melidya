@@ -1,0 +1,56 @@
+﻿@using Melidya.Entity
+@model IEnumerable<Melidya.Entity.Products>
+<div class="row">
+    <div class="col-2">
+        <div class="container">
+            <ul class="list-group float-right">
+                <li class="list-group-item"><a href="/Product/AllProduct">Hepsi</a></li>
+                @foreach (Categories item in ViewBag.Categories)
+                {
+                    <li class="list-group-item"><a href="/Product/Product/@item.CategoryID">@item.CategoryName</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="col-8">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Categories.CategoryName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Suppliers.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnitPrice)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categories.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Suppliers.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitPrice)
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <br />
+    </div>
+    <div class="col-2">
+
+    </div>
+</div>

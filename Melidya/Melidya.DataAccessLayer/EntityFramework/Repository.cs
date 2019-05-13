@@ -18,6 +18,11 @@ namespace BugunNeYesem.DataAccessLayer.EntityFramework
             _objectSet = context.Set<T>();
         }
 
+        public DbSet<T> GetAll()
+        {
+            return _objectSet;
+        }
+
         public int Delete(T obj)
         {
             _objectSet.Remove(obj);
