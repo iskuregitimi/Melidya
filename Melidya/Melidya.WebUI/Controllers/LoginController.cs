@@ -90,7 +90,7 @@ namespace Melidya.WebUI.Controllers
                 List<SepetModel> models = new List<SepetModel>();
                 Session["Sepet"] = models;
             }
-            
+
 
             List<SepetModel> sepet = Session["Sepet"] as List<SepetModel>;
             if (sepet.Find(x => x.ProductID == model.ProductID) != null)
@@ -98,7 +98,12 @@ namespace Melidya.WebUI.Controllers
                 SepetModel mod = sepet.Find(x => x.ProductID == model.ProductID);
                 mod.Quantity += 1;
             }
-            sepet.Add(model);
+            else
+            {
+                sepet.Add(model);
+
+            }
+
             Session["Sepet"] = sepet;
             Session["Count"] = sepet.Count();
 
@@ -106,12 +111,12 @@ namespace Melidya.WebUI.Controllers
         }
 
         public ActionResult SepetGöster()
-         {
+        {
             decimal? SepetTutar = 0;
             decimal? ToplamTutar = 0;
-            
+
             List<SepetModel> sepet = Session["Sepet"] as List<SepetModel>;
-            foreach(SepetModel item in sepet)
+            foreach (SepetModel item in sepet)
             {
                 SepetTutar += (item.Quantity * item.UnitPrice);
             }
@@ -124,13 +129,13 @@ namespace Melidya.WebUI.Controllers
 
         public ActionResult Sil(int id)
         {
-           
+
             List<SepetModel> sepet = Session["Sepet"] as List<SepetModel>;
             SepetModel model = sepet.Find(x => x.ProductID == id);
             if (model.Quantity > 1)
             {
                 model.Quantity -= 1;
-                
+
             }
             else
             {
