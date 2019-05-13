@@ -22,39 +22,33 @@ namespace Melidya.WebUI.Admin.Controllers
             if (employee != null)
             {
                 Session["Login"] = employee;
+                if ((employee.Password.Trim() == model.password.Trim()) && (employee.Role == "A"))
+                {
+                    Session["AdminLogin"] = employee;
+                    return RedirectToAction("getOrders", "Order");
+                }
+                else if ((employee.Password.Trim() == model.password.Trim()) && (employee.Role == "O"))
+                {
+                    Session["ApproverLogin"] = employee;
+                    return RedirectToAction("getOrders", "Order");
+                }
+                else if ((employee.Password.Trim() == model.password.Trim()) && (employee.Role == "K"))
+                {
+                    Session["ShipperLogin"] = employee;
+                    return RedirectToAction("getOrders", "Order");
+                }
             }
 
-            return View();
+            return RedirectToAction("getOrders", "Order");
         }
 
-        public ActionResult profile(LoginModel model)
-        {
-            Employee employee = Session["Login"] as Employee;
-            return View(employee);
-        }
-
-        public ActionResult update(Customer cust)
-        {
-            Customer customer = Session["Login"] as Customer;
-            customer.CustomerID = cust.CustomerID;
-            customer.Password = cust.Password;
-            customer.CompanyName = cust.CompanyName;
-            customer.ContactName = cust.ContactName;
-            customer.ContactTitle = cust.ContactTitle;
-            customer.Address = cust.Address;
-            customer.City = cust.City;
-            customer.Region = cust.Region;
-            customer.PostalCode = cust.PostalCode;
-            customer.Country = cust.Country;
-            customer.Phone = cust.Phone;
-            customer.Fax = cust.Fax;
-            CustomerBLL.updateCustomer(customer);
-            return RedirectToAction("profile");
-        }
 
         public ActionResult logout()
         {
             Session["Login"] = null;
+            Session["AdminLogin"] = null;
+            Session["ApproverLogin"] = null;
+            Session["ShipperLogin"] = null;
             return RedirectToAction("Index");
         }
     }

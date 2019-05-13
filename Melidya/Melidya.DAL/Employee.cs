@@ -29,6 +29,9 @@ namespace Melidya.DAL
         [StringLength(10)]
         public string FirstName { get; set; }
 
+        [StringLength(10)]
+        public string Role { get; set; }
+
         [StringLength(30)]
         public string Title { get; set; }
 

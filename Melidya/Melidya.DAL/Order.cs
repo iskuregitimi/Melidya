@@ -50,6 +50,9 @@ namespace Melidya.DAL
         [StringLength(15)]
         public string ShipCountry { get; set; }
 
+        [StringLength(10)]
+        public string Status { get; set; }
+
         public virtual Customer Customer { get; set; }
 
         public virtual Employee Employee { get; set; }

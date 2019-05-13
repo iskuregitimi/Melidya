@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Melidya.DAL.OrderDetailModel>
+
+@{
+    ViewBag.Title = "getOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Orders</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipAddress)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Status)
+            </th>
+            <td>
+                @if (Session["ApproverLogin"] != null)
+                {
+                    <a href="/Order/approveOrder/@item.OrderID" class="btn btn-danger">APPROVE</a>
+                }
+                @if (Session["AdminLogin"] != null)
+                {
+                    <a href="/Order/approveOrder/@item.OrderID" class="btn btn-danger">APPROVE</a>
+                    <a href="/Order/shipOrder/@item.OrderID" class="btn btn-primary">SHIP</a>
+                }
+                @if (Session["ShipperLogin"] != null)
+                {
+                    <a href="/Order/shipOrder/@item.OrderID" class="btn btn-primary">SHIP</a>
+                }
+            </td>
+        </tr>
+    }
+</table>
