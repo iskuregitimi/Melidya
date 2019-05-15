@@ -52,5 +52,31 @@ namespace Melidya.BLL
             db.Order_Details.Add(orderdetail);
             db.SaveChanges();
         }
+
+        public object GetModel()
+        {
+            var orders = from c in db.Customers
+                         join o in db.Orders on c.CustomerID equals o.CustomerID
+                         join od in db.Order_Details on o.OrderID equals od.OrderID
+                         group od by new { c.ContactName,o.OrderID,o.OrderDate,o.ShipAddress,o.Status } into g
+
+                         select new OrderModel
+                         {
+                             OrderID = g.Key.OrderID,
+                             ContactName = g.Key.ContactName,
+                             OrderDate =g.Key.OrderDate,
+                             ShipAddress = g.Key.ShipAddress,
+                             TotalAmount = g.Sum(x =>x.Quantity*x.UnitPrice ),
+                             Status = g.Key.Status
+                         };
+
+            return orders;
+        }
+        
+        public void Update(Orders order)
+        {
+            
+            db.SaveChanges();
+        }
     }
 }

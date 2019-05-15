@@ -11,6 +11,7 @@ namespace Melidya.ENTITY
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employees()
         {
+            EmployeeRol = new HashSet<EmployeeRol>();
             Employees1 = new HashSet<Employees>();
             Orders = new HashSet<Orders>();
             Territories = new HashSet<Territories>();
@@ -71,6 +72,9 @@ namespace Melidya.ENTITY
 
         [StringLength(255)]
         public string PhotoPath { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeRol> EmployeeRol { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employees> Employees1 { get; set; }

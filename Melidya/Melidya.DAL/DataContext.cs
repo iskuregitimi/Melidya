@@ -1,9 +1,10 @@
-namespace Melidya.ENTITY
+namespace Melidya.DAL
 {
     using System;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Melidya.ENTITY;
 
     public partial class DataContext : DbContext
     {
@@ -15,11 +16,13 @@ namespace Melidya.ENTITY
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<CustomerDemographics> CustomerDemographics { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<EmployeeRol> EmployeeRol { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<Order_Details> Order_Details { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<Region> Region { get; set; }
+        public virtual DbSet<Rols> Rols { get; set; }
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
@@ -38,6 +41,11 @@ namespace Melidya.ENTITY
             modelBuilder.Entity<Customers>()
                 .Property(e => e.CustomerID)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Employees>()
+                .HasMany(e => e.EmployeeRol)
+                .WithRequired(e => e.Employees)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Employees>()
                 .HasMany(e => e.Employees1)
@@ -82,6 +90,11 @@ namespace Melidya.ENTITY
             modelBuilder.Entity<Region>()
                 .HasMany(e => e.Territories)
                 .WithRequired(e => e.Region)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Rols>()
+                .HasMany(e => e.EmployeeRol)
+                .WithRequired(e => e.Rols)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Shippers>()

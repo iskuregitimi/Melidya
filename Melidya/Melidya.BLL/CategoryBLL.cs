@@ -30,9 +30,14 @@ namespace Melidya.BLL
         
         }
 
-        public void Delete(Categories categories)
+        public void Delete(int id)
         {
-            Categories category = db.Categories.FirstOrDefault(x => x.CategoryID == categories.CategoryID);
+            List<Products> product = db.Products.Where(x => x.CategoryID == id).ToList();
+            foreach (Products item in product)
+            {
+                db.Products.Remove(item);
+            }
+           Categories category = db.Categories.Where(x => x.CategoryID == id).FirstOrDefault();      
             db.Categories.Remove(category);
             db.SaveChanges();
         }

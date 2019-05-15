@@ -22,15 +22,15 @@ namespace Melidya.BLL
             return repo.Find(x => x.ProductID == id);
         }
 
-        public void AddProduct(Products product, int categoryId)
+        public void AddProduct(Products product)
         {
             Products products = new Products();
-            products.CategoryID = categoryId;
+            products.CategoryID =product.CategoryID;
             products.ProductID = product.ProductID;
             products.UnitPrice = (decimal)product.UnitPrice;
             products.ProductName = product.ProductName;
             products.QuantityPerUnit = product.QuantityPerUnit;
-            products.SupplierID = 2;
+            products.SupplierID = product.SupplierID;
             products.Discontinued = false;
             db.Products.Add(products);
             db.SaveChanges();

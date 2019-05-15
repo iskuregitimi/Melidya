@@ -33,9 +33,10 @@ namespace Melidya.WebUI.Admin.Controllers
   
         public ActionResult Delete(int id)
         {
-           Categories category= categoryBLL.GetCategory(id);
-            categoryBLL.Delete(category);
+           
+            categoryBLL.Delete(id);
             return RedirectToAction("Index");
         }
+        
     }
 }

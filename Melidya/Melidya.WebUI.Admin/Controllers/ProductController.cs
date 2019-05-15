@@ -1,6 +1,5 @@
 ﻿using Melidya.BLL;
 using Melidya.ENTITY;
-using Melidya.WebUI.Admin.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +12,7 @@ namespace Melidya.WebUI.Admin.Controllers
     {
         ProductBLL productbll = new ProductBLL();
         CategoryBLL categoryBLL = new CategoryBLL();
+        SupplierBLL supplierBLL = new SupplierBLL();
 
         public ActionResult Index()
         {
@@ -22,14 +22,29 @@ namespace Melidya.WebUI.Admin.Controllers
 
         public ActionResult AddProduct()
         {
+            List<SelectListItem> categories = new List<SelectListItem>();
+            List<SelectListItem> suppliers = new List<SelectListItem>();
+            foreach (Categories item in categoryBLL.GetCategories())
+            {
+                categories.Add(new SelectListItem { Text = item.CategoryName, Value = item.CategoryID.ToString() });
+            }
+
+            foreach (Suppliers item in supplierBLL.GetSuppliers())
+            {
+                suppliers.Add(new SelectListItem { Text = item.CompanyName, Value = item.SupplierID.ToString() });
+
+            }
+            ViewBag.Suppliers = suppliers;
+            ViewBag.Categories = categories;
+
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddProduct(Products product,int id)
+        public ActionResult AddProduct(Products product)
         {
-            Categories cate = categoryBLL.GetCategory(id);
-            productbll.AddProduct(product,cate.CategoryID);
+            //Categories cate = categoryBLL.GetCategory(id);
+            productbll.AddProduct(product);
             return RedirectToAction("Index");
         }
     }

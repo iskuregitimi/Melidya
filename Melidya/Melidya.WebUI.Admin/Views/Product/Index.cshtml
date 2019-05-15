@@ -4,14 +4,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Index</h2>
-
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="/Product/AddProduct" class="btn btn-primary">Add Product</a>
 </p>
 <table class="table">
-    <tr>
+    <tr class="bg-info">
+        <th>
+            @Html.DisplayNameFor(model => model.ProductID)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
         </th>
@@ -21,11 +22,18 @@
         <th>
             @Html.DisplayNameFor(model => model.UnitPrice)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryID)
+        </th>
+       
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductID)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProductName)
         </td>
@@ -36,11 +44,10 @@
             @Html.DisplayFor(modelItem => item.UnitPrice)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.CategoryID)
         </td>
-    </tr>
-}
 
+    </tr>
+    }
+    
 </table>

@@ -16,6 +16,7 @@
         if (Session["Admin"] != null)
         {
             employee = Session["Admin"] as Employees;
+
            
         }
 
@@ -38,8 +39,16 @@
 
                     @if (Session["Admin"] != null)
                     {
-                        <li class="nav-item"><a href="/Category/Index/">Categories</a></li>
-                        <li class="nav-item"><a href="/Product/Index">Products</a></li>
+                        foreach (EmployeeRol item in employee.EmployeeRol)
+                        {
+                            if (item.Rols.AuthorityName == "Admin")
+                            {
+                                <li class="nav-item"><a href="/Category/Index/">Categories</a></li>
+                                <li class="nav-item"><a href="/Product/Index">Products</a></li>
+                            }
+                        }
+                        <li class="nav-item"><a href="/Order/Index">Orders</a></li>
+
                         string fullname = employee.LastName + " " + employee.FirstName;
                         <li class="nav-item"><a>@fullname</a></li>
                         <li><a href="/Login/Logout"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Log Out</a></li>

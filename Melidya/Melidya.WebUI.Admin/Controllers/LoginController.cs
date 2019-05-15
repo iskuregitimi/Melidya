@@ -21,6 +21,12 @@ namespace Melidya.WebUI.Admin.Controllers
             return View();
         }
 
+        public ActionResult Logout()
+        {
+            Session["Admin"] = null;
+            return RedirectToAction("Login");
+        }
+
         [HttpPost]
         public ActionResult Login(Employees emp)
         {
