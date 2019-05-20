@@ -75,8 +75,7 @@ namespace Melidya.BLL
         
         public void Update(Orders order)
         {
-            
-            db.SaveChanges();
+            repo.Update(order);
         }
     }
 }
