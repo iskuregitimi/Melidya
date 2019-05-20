@@ -43,25 +43,51 @@ namespace Melidya.WebUI.Admin.Controllers
 
         public ActionResult Kargo(int id)
         {
+            Employees emp = Session["Admin"] as Employees;
             Orders order = orderBLL.GetOrder(id);
-            if (order.Status=="Onaylandı.")
+            if (Session["Admin"] != null)
             {
-                order.Status = "Kargolandı.";
-            }       
-            orderBLL.Update(order);
-            return RedirectToAction("Index");
+                if (order.Status == "Kargoya Verildi")
+                {
+                    return RedirectToAction("Index");
+                }
+                else if (order.Status == "Onaylandı")
+                {
+                    order.Status = "Kargoya Verildi";
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+                orderBLL.Update(order);
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Login", "Login");
         }
 
         
         public ActionResult Onay(int id)
         {
+            Employees emp = Session["Admin"] as Employees;
             Orders order = orderBLL.GetOrder(id);
-            if (order.Status=="")
+            if (Session["Admin"] != null)
             {
-                order.Status = "Onaylandı.";
+                if (order.Status == "Onaylandı")
+                {
+                    return RedirectToAction("Index");
+                }
+                else if (order.Status == "Kargoya Verildi")
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    order.Status = "Onaylandı";
+                }
+                orderBLL.Update(order);
+                return RedirectToAction("Index");
             }
-            orderBLL.Update(order);
-            return RedirectToAction("Index");
+            return RedirectToAction("Login", "Login");
         }
     }
 }
