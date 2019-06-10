@@ -36,6 +36,11 @@ namespace Melidya.BLL
 
         }
 
+		public void AddCustomer(Customer cus)
+		{
+			repo.Add(cus);
+		}
+
 
 
 
