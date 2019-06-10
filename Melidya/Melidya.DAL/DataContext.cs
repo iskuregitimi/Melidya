@@ -52,9 +52,6 @@ namespace Melidya.DAL
                 .WithMany(e => e.Employees)
                 .Map(m => m.ToTable("EmployeeTerritories").MapLeftKey("EmployeeID").MapRightKey("TerritoryID"));
 
-            modelBuilder.Entity<Order_Detail>()
-                .Property(e => e.UnitPrice)
-                .HasPrecision(19, 4);
 
             modelBuilder.Entity<Order>()
                 .Property(e => e.CustomerID)
@@ -73,10 +70,7 @@ namespace Melidya.DAL
                 .Property(e => e.UnitPrice)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.Order_Details)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
+           
 
             modelBuilder.Entity<Region>()
                 .Property(e => e.RegionDescription)
