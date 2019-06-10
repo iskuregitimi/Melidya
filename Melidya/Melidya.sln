@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.BLL", "Melidya.BLL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.ENTITY", "Melidya.ENTITY\Melidya.ENTITY.csproj", "{241205AB-4B8C-4361-932E-CBC74115F100}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.WebAPi", "Melidya.WebAPi\Melidya.WebAPi.csproj", "{AC9CA722-BF7D-4AF0-A82C-586AF8143B16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{241205AB-4B8C-4361-932E-CBC74115F100}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{241205AB-4B8C-4361-932E-CBC74115F100}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{241205AB-4B8C-4361-932E-CBC74115F100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC9CA722-BF7D-4AF0-A82C-586AF8143B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9CA722-BF7D-4AF0-A82C-586AF8143B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9CA722-BF7D-4AF0-A82C-586AF8143B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9CA722-BF7D-4AF0-A82C-586AF8143B16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
