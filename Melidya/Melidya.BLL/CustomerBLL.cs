@@ -32,10 +32,20 @@ namespace Melidya.BLL
         {
 
             repo.Update(cust);
-
-
         }
-
+        public void AddCustomer(Customer cust)
+        {
+            repo.Add(cust);
+        }
+       
+        public void DeleteCustomer(string id)
+        {
+            DataContext db = new DataContext();
+            Customer x = db.Customers.Find(id);
+            db.Customers.Remove(x);
+            db.SaveChanges();
+                
+        }
 
 
 

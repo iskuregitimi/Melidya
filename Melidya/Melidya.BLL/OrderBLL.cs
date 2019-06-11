@@ -23,6 +23,10 @@ namespace Melidya.BLL
             return repos.Find(x => x.OrderID ==orderid);
            
         }
+        public List<Order> ListOrder()
+        {
+            return repo.List();
+        }
 
     }
 }
