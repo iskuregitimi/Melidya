@@ -15,7 +15,7 @@ namespace Melidya.WebApi.Controllers
         [HttpGet]
         public List<Customer> GetCustomers()
         {
-            CustomerBLL customerbll = new CustomerBLL();
+            CustomerBLL customerbll = new CustomerBLL(); 
             return customerbll.GetCustomers();
         }
         [HttpGet]
