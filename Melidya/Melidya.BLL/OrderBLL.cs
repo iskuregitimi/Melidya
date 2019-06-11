@@ -13,7 +13,7 @@ namespace Melidya.BLL
         RepositoryPattern<Order> repo = new RepositoryPattern<Order>();
         RepositoryPattern<Order_Detail> repos = new RepositoryPattern<Order_Detail>();
 
-        public List<Order> GetOrders(string id)
+        public List<Order> GetOrderswithcustomer(string id)
         {
             return repo.List(x => x.CustomerID == id);
         }
@@ -23,6 +23,9 @@ namespace Melidya.BLL
             return repos.Find(x => x.OrderID ==orderid);
            
         }
-
+        public List<Order> GetOrders()
+        {
+            return repo.List();
+        }
     }
 }

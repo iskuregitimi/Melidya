@@ -1,17 +1,24 @@
-﻿using System;
+﻿using Melidya.BLL;
+using Melidya.ENTITY;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 
 namespace Melidya.WebApi.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : ApiController
     {
-        // GET: Product
-        public ActionResult Index()
+        [HttpGet]
+        public List<Product> GetProducts()
         {
-            return View();
+            ProductBLL product = new ProductBLL();
+
+            return product.GetProducts();
         }
+
+
     }
 }

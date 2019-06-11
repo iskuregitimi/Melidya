@@ -11,7 +11,7 @@ namespace Melidya.ENTITY
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Territory()
         {
-            Employees = new HashSet<Employee>();
+            //Employees = new HashSet<Employee>();
         }
 
         [StringLength(20)]
@@ -25,7 +25,7 @@ namespace Melidya.ENTITY
 
         public virtual Region Region { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employees { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<Employee> Employees { get; set; }
     }
 }

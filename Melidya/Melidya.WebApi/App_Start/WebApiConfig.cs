@@ -8,8 +8,11 @@ namespace Melidya.WebApi
 {
     public static class WebApiConfig
     {
+        
         public static void Register(HttpConfiguration config)
         {
+
+
             // Web API configuration and services
 
             // Web API routes
@@ -26,6 +29,8 @@ namespace Melidya.WebApi
                routeTemplate: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
            );
+
+            
         }
     }
 }

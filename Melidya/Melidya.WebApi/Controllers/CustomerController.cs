@@ -11,24 +11,43 @@ namespace Melidya.WebApi.Controllers
 {
     public class CustomerController : ApiController
     {
+        
+        CustomerBLL customerbll = new CustomerBLL();
+        /// <summary>
+        /// Müşteri Listesi Döner
+        /// </summary>
         [HttpGet]
         public List<Customer> GetCustomers()
         {
-            CustomerBLL customer = new CustomerBLL();
-
-            
-            
-            
-            return customer.GetCustomers();
+            return customerbll.GetCustomers();
         }
 
-        [HttpGet]
-        public List<Product> GetProducts()
+       
+        /// <summary>
+        /// Müsteriyi Günceller
+        /// </summary>
+        /// <param name="cust">güncellenecek müsteri</param>
+        [HttpPost]
+        public void UpdateCustomer(Customer cust)
         {
-            ProductBLL product = new ProductBLL();
+            Customer customer = customerbll.GetCustomerId(cust.CustomerID);
+            customer.CustomerID = cust.CustomerID;
+            customer.ContactName = cust.ContactName;
+            customer.CompanyName = cust.CompanyName;
+            customer.ContactTitle = cust.ContactTitle;
+            customer.Country = cust.Country;
+            customer.City = cust.City;
+            customer.Fax = cust.Fax;
 
-            return product.GetProducts();
+            customer.Password = cust.Password;
+            customer.Phone = cust.Phone;
+            customer.PostalCode = cust.PostalCode;
+            customer.Region = cust.Region;
+            customerbll.UpdateCustomer(customer);
         }
+
+     
+               
 
     }
 }
