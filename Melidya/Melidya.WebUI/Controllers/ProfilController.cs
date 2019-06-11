@@ -47,7 +47,7 @@ namespace Melidya.WebUI.Controllers
             customer.Country = cust.Country;
             customer.City = cust.City;
             customer.Fax = cust.Fax;
-            customer.Orders = cust.Orders;
+            
             customer.Password = cust.Password;
             customer.Phone = cust.Phone;
             customer.PostalCode = cust.PostalCode;

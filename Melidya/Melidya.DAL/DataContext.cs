@@ -73,10 +73,9 @@ namespace Melidya.DAL
                 .Property(e => e.UnitPrice)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.Order_Details)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
+            
+               
+                
 
             modelBuilder.Entity<Region>()
                 .Property(e => e.RegionDescription)

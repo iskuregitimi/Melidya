@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.BLL", "Melidya.BLL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.ENTITY", "Melidya.ENTITY\Melidya.ENTITY.csproj", "{241205AB-4B8C-4361-932E-CBC74115F100}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Melidya.WebApi", "Melidya.WebApi\Melidya.WebApi.csproj", "{E4CCDB53-5443-4DBC-979A-241F3C9ADD00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,9 +40,16 @@ Global
 		{241205AB-4B8C-4361-932E-CBC74115F100}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{241205AB-4B8C-4361-932E-CBC74115F100}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{241205AB-4B8C-4361-932E-CBC74115F100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4CCDB53-5443-4DBC-979A-241F3C9ADD00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4CCDB53-5443-4DBC-979A-241F3C9ADD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4CCDB53-5443-4DBC-979A-241F3C9ADD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4CCDB53-5443-4DBC-979A-241F3C9ADD00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A654AB72-D283-4196-9F8B-2CC86F403841} = {6E5FB98E-5FD6-4E9A-A4E8-3D54A41BAD22}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4186C5A6-FFD3-4193-94E1-9226B3893FFF}
