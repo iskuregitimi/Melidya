@@ -18,10 +18,26 @@ namespace Melidya.BLL
             return repo.List(x => x.CustomerID == id);
         }
 
-        public Order_Detail  GetOrder_Detail(int orderid)
+        public List<Order> GetOrders()
+        {
+            return repo.List();
+        }
+
+        public Order GetOrder(int Id)
+        {
+            return repo.Find(x=>x.OrderID==Id);
+        }
+
+        public Order_Detail  GetOrderDetail(int orderid)
         {
             return repos.Find(x => x.OrderID ==orderid);
            
+        }
+
+        public List<Order_Detail> GetOrdersDetail(int Id)
+        {
+            return repos.List(x=>x.OrderID==Id);
+
         }
 
     }

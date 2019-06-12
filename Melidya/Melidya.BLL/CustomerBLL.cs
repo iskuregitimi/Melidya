@@ -23,17 +23,24 @@ namespace Melidya.BLL
             return repo.Find(x => x.CustomerID == id && x.Password==pass);
         }
 
-		public Customer GetCustomerId(string id)
+        public Customer GetCustomer1(string id)
+        {
+            return repo.Find(x => x.CustomerID==id);
+        }
+
+        public Customer GetCustomerId(string id)
 		{
 			return repo.Find(x => x.CustomerID == id);
 		}
 
         public void UpdateCustomer(Customer cust)
         {
-
             repo.Update(cust);
-
-
+        }
+        
+        public void AddCustomer(Customer cust)
+        {
+            repo.Add(cust);
         }
 
 

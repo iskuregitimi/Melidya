@@ -52,9 +52,6 @@ namespace Melidya.DAL
                 .WithMany(e => e.Employees)
                 .Map(m => m.ToTable("EmployeeTerritories").MapLeftKey("EmployeeID").MapRightKey("TerritoryID"));
 
-            modelBuilder.Entity<Order_Detail>()
-                .Property(e => e.UnitPrice)
-                .HasPrecision(19, 4);
 
             modelBuilder.Entity<Order>()
                 .Property(e => e.CustomerID)
@@ -64,19 +61,15 @@ namespace Melidya.DAL
                 .Property(e => e.Freight)
                 .HasPrecision(19, 4);
 
-            modelBuilder.Entity<Order>()
-                .HasMany(e => e.Order_Details)
-                .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Order>()
+            //    .HasMany(e => e.Order_Details)
+            //    .WithRequired(e => e.Order)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.UnitPrice)
                 .HasPrecision(19, 4);
-
-            modelBuilder.Entity<Product>()
-                .HasMany(e => e.Order_Details)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(false);
+            
 
             modelBuilder.Entity<Region>()
                 .Property(e => e.RegionDescription)
@@ -87,10 +80,10 @@ namespace Melidya.DAL
                 .WithRequired(e => e.Region)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Shipper>()
-                .HasMany(e => e.Orders)
-                .WithOptional(e => e.Shipper)
-                .HasForeignKey(e => e.ShipVia);
+            //modelBuilder.Entity<Shipper>()
+            //    //.HasMany(e => e.Orders)
+            //    //.WithOptional(e => e.Shipper)
+            //    .HasForeignKey(e => e.ShipVia);
 
             modelBuilder.Entity<Territory>()
                 .Property(e => e.TerritoryDescription)

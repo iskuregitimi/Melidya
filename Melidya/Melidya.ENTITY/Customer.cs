@@ -11,7 +11,7 @@ namespace Melidya.ENTITY
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
-            Orders = new HashSet<Order>();
+           
             CustomerDemographics = new HashSet<CustomerDemographic>();
         }
 
@@ -52,8 +52,7 @@ namespace Melidya.ENTITY
         [StringLength(24)]
         public string Fax { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+       
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerDemographic> CustomerDemographics { get; set; }
