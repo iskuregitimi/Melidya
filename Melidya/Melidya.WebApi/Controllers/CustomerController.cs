@@ -11,7 +11,7 @@ namespace Melidya.WebApi.Controllers
 {
     public class CustomerController : ApiController
     {
-        
+
         CustomerBLL customerbll = new CustomerBLL();
         /// <summary>
         /// Müşteri Listesi Döner
@@ -22,7 +22,7 @@ namespace Melidya.WebApi.Controllers
             return customerbll.GetCustomers();
         }
 
-       
+
         /// <summary>
         /// Müsteriyi Günceller
         /// </summary>
@@ -46,8 +46,25 @@ namespace Melidya.WebApi.Controllers
             customerbll.UpdateCustomer(customer);
         }
 
-     
-               
+        /// <summary>
+        /// Customer Detayı Gosterir
+        /// </summary>
+        /// <param name="CustomerId">Musteri IDsi</param>
+        /// <returns>Musteri Detay Bilgisi</returns>
+        [HttpPost]
+        public Customer ACustomerDetail(string CustomerId)
+        {
+            Customer customer = customerbll.GetCustomerId(CustomerId);
+            return customer;
+        }
+        [HttpPost]
+      public void MusteriEkle(Customer customer)
+        {
+            customerbll.MusteriEkle(customer);
+        }
+
+
+
 
     }
 }

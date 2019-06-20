@@ -18,15 +18,15 @@ namespace Melidya.WebApi
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
 
             config.Routes.MapHttpRoute(
                name: "YeniRoute",
-               routeTemplate: "{controller}/{action}/{id}",
+               routeTemplate: "{controller}/{action}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
            );
 

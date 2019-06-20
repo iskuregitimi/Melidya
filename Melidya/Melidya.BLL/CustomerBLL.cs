@@ -36,6 +36,11 @@ namespace Melidya.BLL
 
         }
 
+        public void MusteriEkle(Customer customer)
+        {
+            repo.Add(customer);
+        }
+
 
 
 

@@ -492,5 +492,19 @@
             </summary>
             <param name="cust">güncellenecek müsteri</param>
         </member>
+        <member name="M:Melidya.WebApi.Controllers.CustomerController.ACustomerDetail(System.String)">
+            <summary>
+            Customer Detayı Gosterir
+            </summary>
+            <param name="CustomerId">Musteri IDsi</param>
+            <returns>Musteri Detay Bilgisi</returns>
+        </member>
+        <member name="M:Melidya.WebApi.Controllers.OrderController.GetOrder_Detail(System.Int32)">
+            <summary>
+            Orderların Detaylarını getirir
+            </summary>
+            <param name="orderid"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

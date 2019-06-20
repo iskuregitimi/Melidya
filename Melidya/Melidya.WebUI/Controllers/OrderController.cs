@@ -16,7 +16,7 @@ namespace Melidya.WebUI.Controllers
         public ActionResult OrderIndex()
         {
             Customer customer = Session["Login"] as Customer;
-            List<Order> orders = orderbll.GetOrders(customer.CustomerID);
+            List<Order> orders = orderbll.GetOrderswithcustomer(customer.CustomerID);
             return View(orders);
 
         }

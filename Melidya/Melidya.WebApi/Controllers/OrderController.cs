@@ -13,28 +13,27 @@ namespace Melidya.WebApi.Controllers
     public class OrderController : ApiController
     {
         OrderBLL orderBll = new OrderBLL();
-
-
-        [HttpGet]
-        public List<Order> GetOrders(string id)
-        {
-            return orderBll.GetOrderswithcustomer(id);
-        }
-
-
+        /// <summary>
+        /// Orderların Detaylarını getirir
+        /// </summary>
+        /// <param name="orderid"></param>
+        /// <returns></returns>
         [HttpGet]
         public Order_Detail GetOrder_Detail(int orderid)
         {
+            //Request.GetQueryNameValuePairs(,)
             return orderBll.GetOrder_Detail(orderid);
 
         }
 
-
-      
         public List<Order> _GetOrders()
         {
             return orderBll.GetOrders();
 
         }
+        //public void Delete(Order order)
+        //{
+        //    orderBll.Delete(order)
+        //}
     }
 }

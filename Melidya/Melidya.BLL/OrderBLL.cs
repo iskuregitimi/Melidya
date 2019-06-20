@@ -27,5 +27,10 @@ namespace Melidya.BLL
         {
             return repo.List();
         }
+
+        public void Delete(Order ord)
+        {
+            repo.Delete(ord);
+        }
     }
 }
