@@ -30,11 +30,13 @@ namespace Melidya.BLL
 
         public void UpdateCustomer(Customer cust)
         {
-
             repo.Update(cust);
-
-
         }
+
+		public void AddCustomer(Customer cus)
+		{
+			repo.Add(cus);
+		}
 
 
 
