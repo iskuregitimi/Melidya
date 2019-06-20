@@ -35,12 +35,15 @@ namespace Melidya.BLL
 
 
         }
+        public void AddCustomer(Customer cust)
+
+        {
+            repo.Add(cust);
+        }
 
 
 
 
 
-
-
-	}
+    }
 }

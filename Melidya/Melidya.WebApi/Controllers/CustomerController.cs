@@ -15,7 +15,24 @@ namespace Melidya.WebApi.Controllers
             CustomerBLL customerBLL = new CustomerBLL();
             return customerBLL.GetCustomers();
         }
-
+      
+        [HttpGet]
+        public Customer GetCustomerDetail(string Customerid)
+        {
+            CustomerBLL customerBLL = new CustomerBLL();
+            Customer customr = customerBLL.GetCustomerId(Customerid);
+            return customr;
+        }
+        [HttpPost]
+        public string AddCustomer(Customer cus)
+        {
+            CustomerBLL customerBLL = new CustomerBLL();
+            //substring girdiğimiz contactname ismiminin ilk 5 değerini alarak id haline getiriyo
+            cus.CustomerID = cus.ContactName.Substring(5, 0);
+            customerBLL.AddCustomer(cus);
+           
+            return "eklendi";
+        }
 
     }
 }
