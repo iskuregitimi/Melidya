@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Melidya.Entity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,6 +24,22 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@*@Html.ActionLink("Müşteriler", "CustomerList", "Customer")*@</li>
+
+                    @if (Session["User"] == null)
+                    {
+                        <li>@Html.ActionLink("Giriş Yap", "Index", "Login")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Siparişlerim", "Orders", "Order")</li>
+                        
+                        {
+                            var user = (Customers)Session["User"];
+                            <li style="color:white">@user.ContactName</li>
+                        }
+                    }
+
                 </ul>
             </div>
         </div>

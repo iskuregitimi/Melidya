@@ -1,0 +1,24 @@
+﻿@model Melidya.WebUI.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Giriş Yap</h2>
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    <br />
+<table>
+    <tr><td>Kullanıcı Adı: </td> <td>@Html.TextBoxFor(x => x.Username)</td></tr>
+    <tr><td><br />Şifre:</td><td><br />@Html.TextBoxFor(x => x.Password)</td></tr>
+    <tr><td></td><td><br /><input type="submit" value="Giriş" /></td></tr>
+</table>
+    
+    
+    
+    
+
+}
+
